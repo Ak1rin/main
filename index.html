@@ -56,24 +56,30 @@
 <h2>My Music Playlist</h2>
 <ul id="playlist">
     <!-- Manually list your music files here -->
-    <li><a href="music/1-01. Sumeru.mp3">Song 1</a></li>
-     <li><a href="music/Genshin Impact_ Coruscating Street BGM OST [Extended].mp3">Song 2</a></li>
+    <li><a href="#" data-src="music/1-01. Sumeru.mp3">Song 1</a></li>
+    <li><a href="#" data-src="music/song2.mp3">Song 2</a></li>
     <!-- Add more songs here -->
 </ul>
 
-<!-- If you have a lot of files and want to avoid manual listing, consider using a server-side language to generate this list dynamically -->
+<!-- Audio element to play the music -->
+<audio id="audio" controls></audio>
 
 <script>
-    // A simple script to play the music on click
-    const playlist = document.querySelectorAll('#playlist li');
-    playlist.forEach((song, index) => {
-        song.addEventListener('click', function() {
-            // Assuming you have an audio element
-            const audio = document.getElementById('audio');
-            if (audio) {
-                audio.src = this.querySelector('a').href;
-                audio.play();
-            }
+    // Get the audio element
+    const audio = document.getElementById('audio');
+    // Get all the playlist items
+    const playlist = document.querySelectorAll('#playlist li a');
+
+    // Add event listener to each playlist item
+    playlist.forEach((song) => {
+        song.addEventListener('click', function(event) {
+            // Prevent default link behavior
+            event.preventDefault();
+            // Get the audio source from the data-src attribute
+            const src = this.getAttribute('data-src');
+            // Set the audio source and play
+            audio.src = src;
+            audio.play();
         });
     });
 </script>
