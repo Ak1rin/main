@@ -36,7 +36,7 @@ main {
 }
 
 section {
-  background-color: #f7f7f7;
+  background-color: #F8C8DC;
   padding: 1em;
   margin-bottom: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -87,8 +87,8 @@ img {
 }
 
 footer {
-  background-color: #87CEEB!important;
-  color: #fff!important;
+  background-color: #87CEEB;
+  color: #fff;
   padding: 1em;
   text-align: center;
   clear: both;
