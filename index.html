@@ -54,33 +54,51 @@
     </section>
   </main>
 <h2>My Music Playlist</h2>
-<ul id="playlist">
-    <!-- Manually list your music files here -->
-    <li><a href="#" data-src="music/1-01. Sumeru.mp3">Song 1</a></li>
-    <li><a href="#" data-src="music/song2.mp3">Song 2</a></li>
-    <!-- Add more songs here -->
-</ul>
-
-<!-- Audio element to play the music -->
-<audio id="audio" controls></audio>
+<div id="player">
+    <h2 id="song-title"></h2>
+    <audio id="audio" controls></audio>
+    <div class="controls">
+        <button id="prev-button">‹</button>
+        <button id="next-button">›</button>
+    </div>
+</div>
 
 <script>
-    // Get the audio element
-    const audio = document.getElementById('audio');
-    // Get all the playlist items
-    const playlist = document.querySelectorAll('#playlist li a');
+    // Define the playlist
+    const playlist = [
+        { title: "Song 1", src: "music/1-01. Sumeru.mp3" },
+        { title: "Song 2", src: "music/song2.mp3" },
+        // Add more songs here...
+    ];
 
-    // Add event listener to each playlist item
-    playlist.forEach((song) => {
-        song.addEventListener('click', function(event) {
-            // Prevent default link behavior
-            event.preventDefault();
-            // Get the audio source from the data-src attribute
-            const src = this.getAttribute('data-src');
-            // Set the audio source and play
-            audio.src = src;
-            audio.play();
-        });
+    // Get the audio element and controls
+    const audio = document.getElementById('audio');
+    const songTitle = document.getElementById('song-title');
+    const prevButton = document.getElementById('prev-button');
+    const nextButton = document.getElementById('next-button');
+
+    // Initialize the current song index
+    let currentSongIndex = 0;
+
+    // Function to play the current song
+    function playCurrentSong() {
+        audio.src = playlist[currentSongIndex].src;
+        songTitle.textContent = playlist[currentSongIndex].title;
+        audio.play();
+    }
+
+    // Play the first song
+    playCurrentSong();
+
+    // Add event listeners to the controls
+    prevButton.addEventListener('click', function() {
+        currentSongIndex = (currentSongIndex - 1 + playlist.length) % playlist.length;
+        playCurrentSong();
+    });
+
+    nextButton.addEventListener('click', function() {
+        currentSongIndex = (currentSongIndex + 1) % playlist.length;
+        playCurrentSong();
     });
 </script>
 
