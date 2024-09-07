@@ -1,6 +1,6 @@
 // Sample song list
 const songs = [
-    {title: "Song 1", src: "song1.mp3"},
+    {title: "Sumeru", src: "audio/1-01. Sumeru.mp3""},
     {title: "Song 2", src: "song2.mp3"},
     {title: "Song 3", src: "song3.mp3"},
 ];
