@@ -42,6 +42,34 @@ section {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.player {
+    width: 50%;
+    margin: auto;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#songList {
+    margin-top: 20px;
+}
+
+#songList ul {
+    list-style: none;
+    padding: 0;
+}
+
+#songList li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+}
+
+#songList li:hover {
+    background-color: #ddd;
+}
 h1, h2, h3 {
   color: #333;
 }
