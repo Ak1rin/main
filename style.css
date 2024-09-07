@@ -52,6 +52,11 @@ section {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
+#player {
+  margin: 0 auto;
+  width: 50%; /* optional, set a width to make it centered */
+  text-align: center; /* optional, to center the text inside */
+}
 #songList {
     margin-top: 20px;
 }
