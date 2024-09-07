@@ -87,8 +87,8 @@ img {
 }
 
 footer {
-  background-color: #87CEEB;
-  color: #fff;
+  background-color: #87CEEB!important;
+  color: #fff!important;
   padding: 1em;
   text-align: center;
   clear: both;
