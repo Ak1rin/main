@@ -12,6 +12,12 @@ header {
   text-align: center;
 }
 
+.gradient-hr {
+  border: none;
+  height: 1px;
+  background-image: repeating-linear-gradient(to right, #FFC5C5 20%, #C5CAE9 50%, #FFFFFF 80%);
+}
+
 nav ul {
   list-style: none;
   margin: 0;
