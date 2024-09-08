@@ -1,5 +1,5 @@
 body {
-  background-color: #e8f3f3;
+  background-color: #ffffff;
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -46,7 +46,6 @@ section {
 .player {
     width: 50%;
     margin: auto;
-    background-color: #f0f0f0;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 10px;
@@ -55,8 +54,8 @@ section {
 
 #player {
   margin: 0 auto;
-  width: 50%; /* optional, set a width to make it centered */
-  text-align: center; /* optional, to center the text inside */
+  width: 50%; 
+  text-align: center; 
 }
 #songList {
     margin-top: 20px;
