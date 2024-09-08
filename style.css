@@ -19,6 +19,7 @@ header {
   background: repeating-linear-gradient(to right, #FFC5C5 20%, #C5CAE9 50%, #FFFFFF 30%);
   display: block;
   width: 100%;
+  margin: 20px 0;
 }
 
 nav ul {
