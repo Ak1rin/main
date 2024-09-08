@@ -16,8 +16,7 @@ header {
   height: 6px;
   border: none;
   border-radius: 6px;
-  background: linear-gradient(
-    90deg,, #FFC5C5 20%, #C5CAE9 50%, #FFFFFF 80%);
+  background: linear-gradient(to right, #FFC5C5 20%, #C5CAE9 50%, #FFFFFF 80%);
 }
 
 nav ul {
