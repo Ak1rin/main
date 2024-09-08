@@ -13,10 +13,11 @@ header {
 }
 
 .gradient-hr {
-  height: 3px;
+  height: 6px;
   border: none;
   border-radius: 6px;
-  background: repeating-radial-gradient(circle, #FFC5C5 20%, #C5CAE9 50%, #FFFFFF 80%);
+  background: linear-gradient(
+    90deg,, #FFC5C5 20%, #C5CAE9 50%, #FFFFFF 80%);
 }
 
 nav ul {
