@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SINAR TRANS EXPRESS</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    header img {
+      max-height: 100px;
+    }
+    h1 {
+      color: #d60000;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .form-group {
+      margin-bottom: 10px;
+    }
+    .button-container {
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 15px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    nav {
+      text-align: center;
+      margin-top: 30px;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="1000013343.jpg" alt="PKE Logo">
+    <h1>SINAR TRANS EXPRESS</h1>
+    <p>Jasa Pengiriman Barang via Kereta Api & Truck</p>
+  </header>
+
+  <div class="form-group">
+    <label for="city">Pilih Kota:</label>
+    <select id="city" onchange="setPrices()">
+      <option value="">--Pilih Kota--</option>
+      <option value="Jepara">Jepara</option>
+      <option value="Kendal">Kendal</option>
+      <option value="Pati">Pati</option>
+      <option value="Rembang">Rembang</option>
+      <option value="Demak">Demak</option>
+      <option value="Yogya">Yogya</option>
+    </select>
+  </div>
+
+  <div class="form-group"><input type="text" id="resi" placeholder="Nomor Resi"></div>
+  <div class="form-group"><input type="text" id="pengirim" placeholder="Pengirim"></div>
+  <div class="form-group"><input type="text" id="penerima" placeholder="Penerima"></div>
+  <div class="form-group"><input type="text" id="tujuan" placeholder="Tujuan"></div>
+  <div class="form-group"><input type="text" id="koli" placeholder="Koli"></div>
+  <div class="form-group"><input type="number" id="berat" placeholder="Berat (KG)"></div>
+
+  <div class="button-container">
+    <button onclick="addData()">Tambah Data</button>
+    <button onclick="exportToExcel()">Export ke Excel</button>
+  </div>
+
+  <table id="dataTable">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Nomor Resi</th>
+        <th>Pengirim</th>
+        <th>Penerima</th>
+        <th>Tujuan</th>
+        <th>Koli</th>
+        <th>Berat (KG)</th>
+        <th>30KG Pertama</th>
+        <th>KG Berikutnya</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <nav>
+    <a href="#" onclick="openMegaTransPage()">Ke Halaman MEGATRAN EXPRESS</a>
+  </nav>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script>
+    const cityRates = {
+      Jepara: { base: 55000, extra: 1500 },
+      Kendal: { base: 45000, extra: 1000 },
+      Pati: { base: 50000, extra: 1000 },
+      Rembang: { base: 55000, extra: 1500 },
+      Demak: { base: 45000, extra: 1000 },
+      Yogya: { base: 70000, extra: 1500 }
+    };
+
+    let no = 1;
+
+    function setPrices() {
+      const city = document.getElementById('city').value;
+      if (!city) return;
+    }
+
+    function addData() {
+      const resi = document.getElementById('resi').value;
+      const pengirim = document.getElementById('pengirim').value;
+      const penerima = document.getElementById('penerima').value;
+      const tujuan = document.getElementById('tujuan').value;
+      const koli = document.getElementById('koli').value;
+      const berat = parseFloat(document.getElementById('berat').value);
+      const city = document.getElementById('city').value;
+      if (!cityRates[city]) return alert("Pilih kota terlebih dahulu.");
+
+      const rate = cityRates[city];
+      const base = rate.base;
+      const extra = rate.extra;
+      const beratBayar = berat > 30 ? berat : 30;
+      const total = berat > 30 ? base + (beratBayar - 30) * extra : base;
+
+      const tbody = document.querySelector('#dataTable tbody');
+      const row = tbody.insertRow();
+      row.innerHTML = `
+        <td>${no++}</td>
+        <td>${resi}</td>
+        <td>${pengirim}</td>
+        <td>${penerima}</td>
+        <td>${tujuan}</td>
+        <td>${koli}</td>
+        <td>${berat}</td>
+        <td>${base}</td>
+        <td>${extra}</td>
+        <td>${total}</td>
+      `;
+    }
+
+    function exportToExcel() {
+      const wb = XLSX.utils.book_new();
+      const ws = XLSX.utils.table_to_sheet(document.getElementById('dataTable'));
+      XLSX.utils.book_append_sheet(wb, ws, 'SinarTrans');
+      XLSX.writeFile(wb, 'SinarTransExpress.xlsx');
+    }
+
+    function openMegaTransPage() {
+      window.open('megatrans.html', '_blank');
+    }
+  </script>
+</body>
+</html>
