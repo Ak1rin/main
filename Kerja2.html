@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MEGATRAN EXPRESS</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e9f5ec;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      background-color: #2e7d32;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      border-radius: 8px;
+    }
+    nav {
+      margin-top: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #2e7d32;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #2e7d32;
+      color: white;
+    }
+    input, button {
+      padding: 8px;
+      margin: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #2e7d32;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>MEGATRAN EXPRESS</header>
+  <nav>
+    <a href="index.html">Kembali ke SINAR TRANS EXPRESS</a>
+  </nav>
+  <div class="container">
+    <div>
+      <input type="text" id="q" placeholder="Q" />
+      <input type="number" id="kg" placeholder="KG" />
+      <input type="text" id="pengirim" placeholder="Pengirim" />
+      <input type="text" id="penerima" placeholder="Penerima" />
+      <input type="number" id="harga" placeholder="Harga" />
+      <button onclick="addRow()">Tambah</button>
+      <button onclick="exportToExcel()">Download Excel</button>
+    </div>
+    <table id="dataTable">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Q</th>
+          <th>KG</th>
+          <th>Pengirim</th>
+          <th>Penerima</th>
+          <th>Harga</th>
+          <th>Komisi</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script>
+    let counter = 1;
+    function addRow() {
+      const q = document.getElementById("q").value;
+      const kg = document.getElementById("kg").value;
+      const pengirim = document.getElementById("pengirim").value;
+      const penerima = document.getElementById("penerima").value;
+      const harga = parseFloat(document.getElementById("harga").value);
+
+      let komisi = 0;
+      const isSemarangPenerima = /semarang/i.test(penerima);
+      const isSemarangPengirim = /semarang/i.test(pengirim);
+
+      if (isSemarangPenerima) {
+        komisi = harga * 0.25; // Komisi 25% dari harga
+      } else if (!isSemarangPengirim) {
+        komisi = harga * 0.5; // Komisi 50% dari harga
+      }
+
+      const table = document.getElementById("dataTable").getElementsByTagName("tbody")[0];
+      const newRow = table.insertRow();
+
+      newRow.innerHTML = `
+        <td>${counter++}</td>
+        <td>${q}</td>
+        <td>${kg}</td>
+        <td>${pengirim}</td>
+        <td>${penerima}</td>
+        <td>${harga.toLocaleString()}</td>
+        <td>${komisi.toLocaleString()}</td>
+      `;
+
+      // Clear input fields
+      document.getElementById("q").value = "";
+      document.getElementById("kg").value = "";
+      document.getElementById("pengirim").value = "";
+      document.getElementById("penerima").value = "";
+      document.getElementById("harga").value = "";
+    }
+
+    function exportToExcel() {
+      let table = document.getElementById("dataTable");
+      let html = table.outerHTML.replace(/ /g, '%20');
+      let a = document.createElement('a');
+      a.href = 'data:application/vnd.ms-excel,' + html;
+      a.download = 'megatrans_data.xls';
+      a.click();
+    }
+  </script>
+</body>
+</html>
