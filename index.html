@@ -18,6 +18,8 @@
         <ul>
           <li><a href="#about">🌸 About Me 🌸</a></li>
           <li><a href="#projects">✨ My Projects ✨</a></li>
+          <li><a href="#gallery">🖼️ Gallery 🖼️</a></li> {/* New */}
+          <li><a href="#blog">✏️ Blog/Thoughts ✏️</a></li> {/* New */}
           <li><a href="#contact">💌 Links & Contact 💌</a></li>
         </ul>
       </nav>
@@ -48,6 +50,38 @@
 
     <div class="gradient-hr"></div>
 
+    <section id="gallery" class="cute-section"> {/* New Section */}
+      <h2>🖼️ My Gallery 🖼️</h2>
+      <p>A place for my art, photos, or other visual things! Coming soon... 🎨</p>
+      <div class="gallery-placeholder">
+        <div class="gallery-item-placeholder"></div>
+        <div class="gallery-item-placeholder"></div>
+        <div class="gallery-item-placeholder"></div>
+        <div class="gallery-item-placeholder"></div> {/* Added one more for better wrapping demo */}
+      </div>
+    </section>
+
+    <div class="gradient-hr"></div>
+
+    <section id="blog" class="cute-section"> {/* New Section */}
+      <h2>✏️ Blog & Thoughts ✏️</h2>
+      <p>My little space for ramblings, updates, and stories. Stay tuned! 📝</p>
+      <article class="blog-post-placeholder">
+        <h3>My First "Post"!</h3>
+        <p>Just setting things up here. More to come later when I have cute things to share!</p>
+        <span id="post-date">Posted on: May 9, 2025</span>
+      </article>
+      {/* You can add more articles like this:
+      <article class="blog-post-placeholder">
+        <h3>Another Day, Another Thought!</h3>
+        <p>Something new I learned today, or just a random cute thought! 💭</p>
+        <span>Posted on: May 10, 2025</span>
+      </article>
+      */}
+    </section>
+
+    <div class="gradient-hr"></div>
+
     <section id="contact" class="cute-section">
       <h2>💖 Connect & Links 💖</h2>
       <p>Gatau link apaan ntar ah - I'll figure out more cute links soon! 🌟</p>
@@ -55,7 +89,7 @@
         <li><a href="https://keep.google.com/" target="_blank" rel="noopener noreferrer">📝 Google Keep</a></li>
         <li><a href="https://www.seadc.ccms.teleperformance.com/ccms-bin/home.pl" target="_blank" rel="noopener noreferrer">🔗 CCMS</a></li>
         <li><a href="https://x.com/login" target="_blank" rel="noopener noreferrer">🐦 Twitter / X</a></li>
-        </ul>
+      </ul>
     </section>
   </main>
 
@@ -75,10 +109,24 @@
   </div>
 
   <footer>
-    <p>&copy; 2024 Ak1rin 🌸 Made with love & a sprinkle of magic ✨</p>
+    <p>&copy; <span id="current-year">2024</span> Ak1rin 🌸 Made with love & a sprinkle of magic ✨</p>
   </footer>
 
 <script>
+  // Set current year in footer
+  document.getElementById('current-year').textContent = new Date().getFullYear();
+
+  // Set blog post date dynamically (example for one post)
+  // For multiple posts, you'd iterate or select them more specifically
+  // const postDateElement = document.getElementById('post-date');
+  // if (postDateElement) {
+  //   const today = new Date();
+  //   const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  //   postDateElement.textContent = `Posted on: ${today.toLocaleDateString('en-US', options)}`;
+  // }
+  // Current date is May 9, 2025, so hardcoding for this example. For dynamic use, uncomment above.
+
+
   // Define the playlist
   const playlist = [
     { title: "Sumeru Theme 🍃", src: "music/1-01. Sumeru.mp3" },
@@ -98,19 +146,23 @@
   // Function to play the current song
   function playCurrentSong() {
     if (playlist.length === 0) {
-      songTitle.textContent = "No songs in playlist!";
+      songTitle.textContent = "No songs in playlist! Add some 🎵";
       return;
     }
     audio.src = playlist[currentSongIndex].src;
     songTitle.textContent = playlist[currentSongIndex].title;
-    audio.play().catch(error => console.error("Error playing audio:", error)); // Catch for autoplay policy issues
+    audio.play().catch(error => {
+      console.error("Error playing audio:", error);
+      songTitle.textContent = `Error playing: ${playlist[currentSongIndex].title}`;
+      // Offer a manual play button perhaps, or just log error for autoplay issues
+    });
   }
 
   // Play the first song
   if (playlist.length > 0) {
     playCurrentSong();
   } else {
-    songTitle.textContent = "Playlist is empty 🎵";
+    songTitle.textContent = "Playlist is empty 🎶";
   }
 
   // Add event listeners to the controls
@@ -128,12 +180,12 @@
 
   // Optional: Cute sparkle cursor effect
   const cursor = document.querySelector('.sparkle-cursor');
-  document.addEventListener('mousemove', (e) => {
-    if (cursor) {
+  if (cursor) { // Check if cursor element exists
+    document.addEventListener('mousemove', (e) => {
       cursor.style.left = e.pageX + 'px';
       cursor.style.top = e.pageY + 'px';
-    }
-  });
+    });
+  }
 </script>
 </body>
 </html>
