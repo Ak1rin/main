@@ -55,44 +55,43 @@
 
 <style>
 :root {
-  --lavender-pastel: #e6e6fa;
-  --mint-green: #b8f2e6;
-  --pastel-pink: #f7c4d4;
-  --light-pink: #ffe0ef;
+  --peach: #ffe5b4;
+  --baby-blue: #d0f0fd;
+  --lavender: #e6e6fa;
+  --bubblegum-pink: #ffb6c1;
+  --cotton-candy: #ffcce7;
+  --dark-lavender: #6b4e71;
   --soft-white: #fffafa;
-  --cute-purple: #e0bbff;
-  --baby-blue: #cceeff;
+  --white: #ffffff;
 }
 
-/* Section with lavender as primary background */
+/* Pretty pastel gradient background */
 .special-social-section {
-  background: linear-gradient(135deg, var(--lavender-pastel), var(--light-pink), var(--baby-blue));
-  color: var(--mint-green);
+  background: linear-gradient(135deg, var(--peach), var(--lavender), var(--baby-blue));
+  color: var(--dark-lavender);
   padding: 35px 25px;
   margin: 40px auto;
-  border-radius: 20px;
-  border: 4px solid var(--mint-green);
-  box-shadow: 0 0 30px rgba(226, 200, 255, 0.6), 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 22px;
+  border: 3px solid var(--cotton-candy);
+  box-shadow: 0 0 20px rgba(255, 182, 193, 0.5), 0 8px 16px rgba(0, 0, 0, 0.1);
   text-align: center;
-  position: relative;
   overflow: hidden;
+  max-width: 800px;
 }
 
-/* Keep header in pink for contrast */
+/* Fancy pastel header */
 .special-social-section h2 {
   font-family: 'Pacifico', cursive;
-  color: var(--pastel-pink);
-  font-size: 2.6em;
-  margin-top: 0;
-  margin-bottom: 15px;
-  text-shadow: 2px 2px 0px var(--soft-white), 0 0 10px var(--pastel-pink);
+  color: var(--bubblegum-pink);
+  font-size: 2.8em;
+  margin: 0 0 15px;
+  text-shadow: 2px 2px var(--soft-white), 0 0 12px var(--bubblegum-pink);
 }
 
 .special-social-section p {
-  color: var(--mint-green);
-  font-size: 1.15em;
+  color: var(--dark-lavender);
+  font-size: 1.2em;
   margin-bottom: 30px;
-  opacity: 0.95;
 }
 
 .wave-emoji {
@@ -118,41 +117,42 @@
   gap: 20px;
 }
 
+/* Cute button style */
 .social-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: var(--soft-white);
-  color: var(--mint-green);
+  background-color: var(--white);
+  color: var(--dark-lavender);
   padding: 12px 25px;
   border-radius: 40px;
   text-decoration: none;
   font-weight: 700;
   font-size: 1.1em;
-  border: 2px solid var(--mint-green);
-  box-shadow: 0 4px 10px rgba(185, 255, 236, 0.3);
+  border: 2px solid var(--cotton-candy);
+  box-shadow: 0 4px 10px rgba(255, 204, 231, 0.4);
   transition: all 0.3s ease-in-out;
 }
 
 .social-link .social-icon-placeholder {
   margin-right: 10px;
   font-weight: bold;
-  color: var(--cute-purple);
+  color: var(--bubblegum-pink);
 }
 
-/* Cute hover effect */
+/* Hover effect */
 .social-link:hover,
 .social-link:focus {
-  background-color: var(--mint-green);
-  color: var(--soft-white);
-  border-color: var(--cute-purple);
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  background-color: var(--bubblegum-pink);
+  color: var(--white);
+  border-color: var(--white);
+  transform: translateY(-5px) scale(1.07);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 @media (max-width: 480px) {
   .special-social-section h2 {
-    font-size: 2em;
+    font-size: 2.1em;
   }
 
   .special-social-section p {
@@ -162,7 +162,7 @@
   .social-link {
     font-size: 1em;
     padding: 10px 20px;
-    width: calc(80% - 20px);
+    width: calc(85% - 20px);
     justify-content: center;
   }
 
@@ -174,27 +174,6 @@
 }
 </style>
 
-
-
-
-    <div class="gradient-hr"></div>
-
-    <section id="projects" class="cute-section">
-      <h2>🎀 Featured Projects 🎀</h2>
-      <ul style="list-style-type:none; padding-left: 0;">
-        <li>
-          <a href="https://github.com/Ak1rin/main" style="text-decoration:none">
-            <h3>My GitHub Profile Page 💻</h3>
-          </a>
-          <p>baru bisa buat ini njir, ngarahnya kesini sih harusnya kalau di klik. It's a start! 🎉</p>
-          <a href="https://ak1rin.github.io/main/Kerja3.html" style="text-decoration:none">
-            <h3> STE Data Input Experimental Web</h3>
-            <p> Developing a web-based tool to calculate customer delivery costs by streamlining data entry from physical bills. The goal is to efficiently digitize this information and export it into a structured Excel format</p>
-          </a>
-        </li>
-        </ul>
-    </section>
-  
 
     <div class="gradient-hr"></div>
 
