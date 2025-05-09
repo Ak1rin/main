@@ -1,12 +1,12 @@
 /* style.css */
 :root {
-  --pastel-pink: #F9C2D6; /* Lighter pink */
-  --pastel-blue: #A2D2FF; /* Soft blue */
+  --pastel-pink: #F9C2D6;
+  --pastel-blue: #A2D2FF;
   --white: #FFFFFF;
-  --dark-pink-text: #E87A90; /* For headings, stronger contrast */
-  --text-color: #5c5c5c; /* Soft dark grey for text */
-  --light-bg: #FFF8FB; /* Very light pink for section backgrounds */
-  --border-radius-main: 20px; /* Slightly more rounded */
+  --dark-pink-text: #E87A90;
+  --text-color: #5c5c5c;
+  --light-bg: #FFF8FB;
+  --border-radius-main: 20px;
   --border-radius-small: 12px;
 }
 
@@ -18,10 +18,14 @@ body {
   padding: 0;
   line-height: 1.7;
   overflow-x: hidden;
-  /* background-image: url('your-cute-tileable-background.png'); /* Optional: subtle background pattern */
+  /* Subtle polka dot background */
+  background-image:
+    radial-gradient(rgba(249, 194, 214, 0.25) 0.8px, transparent 0.8px), /* Pink dots */
+    radial-gradient(rgba(162, 210, 255, 0.25) 0.8px, transparent 0.8px); /* Blue dots */
+  background-size: 25px 25px; /* Size and spacing of the dot grid */
+  background-position: 0 0, 12.5px 12.5px; /* Offset for the two dot patterns */
 }
 
-/* Sparkle cursor - basic idea */
 .sparkle-cursor {
   position: absolute;
   width: 15px;
@@ -44,12 +48,13 @@ header {
   margin-bottom: 35px;
   text-align: center;
   border-bottom: 5px solid var(--white);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Softer shadow */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .header-content {
     max-width: 900px;
     margin: 0 auto;
+    padding: 0 15px; /* Padding for content within header on smaller screens */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -66,9 +71,9 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 20px rgba(249, 194, 214, 0.6); /* Pink glow */
+    box-shadow: 0 0 20px rgba(249, 194, 214, 0.6);
     margin-bottom: 10px;
-    border: 3px solid var(--pastel-blue); /* Cute border */
+    border: 3px solid var(--pastel-blue);
 }
 
 nav ul {
@@ -76,65 +81,68 @@ nav ul {
   padding: 0;
   margin: 0;
   display: flex;
-  flex-wrap: wrap; /* Allow nav items to wrap on smaller screens */
-  justify-content: center; /* Center items when they wrap */
-  gap: 12px;
+  flex-wrap: wrap; /* Allow nav items to wrap */
+  justify-content: center;
+  gap: 10px; /* Space between items */
 }
 
 nav ul li a {
   text-decoration: none;
   color: var(--white);
   font-weight: 700;
-  font-size: 1.15em;
-  padding: 12px 22px;
+  font-size: 1.1em; /* Adjusted for more items */
+  padding: 10px 18px; /* Adjusted for more items */
   border-radius: var(--border-radius-small);
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-  background-color: rgba(255, 255, 255, 0.25); /* Slightly more visible bg */
+  background-color: rgba(255, 255, 255, 0.25);
   border: 1px solid rgba(255,255,255,0.3);
 }
 
 nav ul li a:hover {
   background-color: var(--white);
   color: var(--pastel-pink);
-  transform: translateY(-4px) scale(1.05); /* Enhanced lift */
+  transform: translateY(-4px) scale(1.05);
   box-shadow: 0 5px 10px rgba(0,0,0,0.15);
 }
 
 main {
   padding: 0 20px;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto 30px auto;
 }
 
 .cute-section {
   margin-bottom: 35px;
-  padding: 30px; /* More padding */
+  padding: 30px;
   background-color: var(--light-bg);
   border-radius: var(--border-radius-main);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   border: 3px dashed var(--pastel-blue);
   position: relative;
-  overflow: hidden; /* For inner decorations */
+  overflow: hidden;
 }
 
-.cute-section::before {
+.cute-section::before { /* Default emoji for sections */
     content: '💖';
     position: absolute;
-    top: -18px; /* Adjusted for new border-radius/padding */
+    top: -18px;
     left: 25px;
     font-size: 2em;
     opacity: 0.9;
     transform: rotate(-15deg);
     text-shadow: 0 0 5px var(--white);
 }
+#about.cute-section::before { content: '🌸'; transform: rotate(-12deg); left: 20px;}
 #projects.cute-section::before { content: '✨'; transform: rotate(10deg); top:-15px; left: auto; right: 25px;}
+#gallery.cute-section::before { content: '🎨'; transform: rotate(-10deg); top:-15px; left: 25px;}
+#blog.cute-section::before { content: '✏️'; transform: rotate(8deg); top:-16px; left: auto; right: 25px;}
 #contact.cute-section::before { content: '💌'; transform: rotate(5deg); top:-18px; left: 20px; }
 
 
 h1.main-title {
   font-family: 'Pacifico', cursive;
   color: var(--dark-pink-text);
-  font-size: 3em; /* Even bigger! */
+  font-size: 3em;
   text-align: center;
   margin-bottom: 25px;
   line-height: 1.2;
@@ -144,7 +152,6 @@ h1.main-title span {
     display: inline-block;
     padding: 8px 18px;
 }
-
 
 h2 {
   font-family: 'Pacifico', cursive;
@@ -173,7 +180,6 @@ h2::after {
     to { opacity: 1; transform: scaleX(1); }
 }
 
-
 p {
   color: var(--text-color);
   text-align: center;
@@ -190,15 +196,14 @@ p.intro-text {
 
 p.motivation-text {
   font-style: italic;
-  color: #659dbd; /* A slightly deeper pastel blue for contrast */
+  color: #659dbd;
   font-weight: bold;
   margin-top: 22px;
   padding: 10px;
   background-color: rgba(162, 210, 255, 0.1);
   border-radius: var(--border-radius-small);
-  display: inline-block; /* To contain background */
+  display: inline-block;
 }
-
 
 a {
   color: var(--pastel-blue);
@@ -211,7 +216,7 @@ a:hover {
   color: var(--pastel-pink);
   text-decoration: underline wavy var(--pastel-pink) 2px;
   text-shadow: 0 0 8px rgba(249, 194, 214, 0.6);
-  transform: scale(1.03); /* Slight scale on general links too */
+  transform: scale(1.03);
 }
 
 #projects ul {
@@ -224,7 +229,7 @@ a:hover {
   padding: 22px;
   border-radius: var(--border-radius-small);
   margin-bottom: 18px;
-  border: 2px solid var(--pastel-pink); /* Thicker border */
+  border: 2px solid var(--pastel-pink);
   box-shadow: 0 5px 10px rgba(249, 194, 214, 0.4);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
@@ -242,13 +247,76 @@ a:hover {
   font-size: 1.5em;
   font-weight: 700;
 }
-#projects ul li a:hover h3 { /* Keep link styling on H3 separate from general a:hover */
+#projects ul li a:hover h3 {
   color: var(--pastel-blue);
 }
 #projects ul li p {
     font-size: 1em;
     color: var(--text-color);
 }
+
+/* Gallery Placeholder Styles */
+.gallery-placeholder {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Changed from space-around for better centering */
+  gap: 20px; /* Increased gap */
+  margin-top: 25px;
+}
+.gallery-item-placeholder {
+  width: 160px; /* Slightly larger */
+  height: 160px;
+  background-color: rgba(162, 210, 255, 0.35);
+  border: 2px dashed var(--pastel-pink);
+  border-radius: var(--border-radius-small);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5em; /* Larger emoji */
+  color: var(--white);
+  text-shadow: 0 0 5px var(--pastel-blue);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery-item-placeholder:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 4px 10px rgba(162, 210, 255, 0.5);
+}
+.gallery-item-placeholder::after {
+  content: '🖼️';
+}
+
+
+/* Blog Placeholder Styles */
+.blog-post-placeholder {
+  background-color: var(--white);
+  padding: 20px; /* More padding */
+  border-radius: var(--border-radius-small);
+  margin-top: 25px;
+  border: 1px solid var(--pastel-pink);
+  box-shadow: 0 3px 8px rgba(249, 194, 214, 0.35);
+  text-align: left; /* Align text left for blog posts */
+}
+.blog-post-placeholder h3 {
+  color: var(--dark-pink-text);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 1.4em; /* Slightly larger */
+  margin-top: 0;
+  margin-bottom: 10px; /* Space below title */
+}
+.blog-post-placeholder p {
+    text-align: left; /* Ensure paragraph text is also left-aligned */
+    margin-bottom: 15px;
+}
+.blog-post-placeholder span {
+  font-size: 0.9em; /* Slightly larger date */
+  color: var(--text-color);
+  opacity: 0.8;
+  display: block;
+  margin-top: 12px;
+  text-align: right;
+}
+
 
 .gradient-hr {
   border: 0;
@@ -274,18 +342,17 @@ a:hover {
 }
 #contact ul li a {
     font-weight: normal;
-    padding: 3px 0; /* Add some padding for hover effect to look better */
-    display: inline-block; /* Needed for padding/transform */
+    padding: 3px 0;
+    display: inline-block;
 }
 #contact ul li a:hover {
     font-weight: bold;
-    transform: translateX(5px); /* Cute little nudge */
+    transform: translateX(5px);
 }
-
 
 /* Music Player Styling */
 #player-container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 35px auto;
 }
 
@@ -301,10 +368,10 @@ a:hover {
 #player #song-title {
   color: var(--dark-pink-text);
   font-family: 'Nunito', sans-serif;
-  font-weight: 700; /* Bolder title */
+  font-weight: 700;
   font-size: 1.6em;
   margin-bottom: 18px;
-  min-height: 1.5em; /* Prevent layout shift */
+  min-height: 1.5em;
 }
 
 #audio {
@@ -316,7 +383,7 @@ a:hover {
 }
 
 audio::-webkit-media-controls-panel {
-  background-color: rgba(249, 194, 214, 0.7) !important; /* Pink with some transparency */
+  background-color: rgba(249, 194, 214, 0.7) !important;
   border-radius: var(--border-radius-small);
   padding: 8px;
 }
@@ -328,21 +395,21 @@ audio::-webkit-media-controls-mute-button,
 audio::-webkit-media-controls-volume-slider {
   filter: saturate(1.3) brightness(1.05);
   border-radius: 8px;
-  color: var(--white) !important; /* Try to make icons white */
+  /* color: var(--white) !important; /* Browser may override this */
 }
 
 
 .controls button {
   background: linear-gradient(135deg, var(--pastel-blue), #BBE1FA);
   color: white;
-  border: 2px solid var(--white); /* White border */
+  border: 2px solid var(--white);
   padding: 13px 28px;
   margin: 0 10px;
   border-radius: 50px;
   cursor: pointer;
   font-size: 1.05em;
   font-weight: 700;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Elastic transition */
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   box-shadow: 0 4px 8px rgba(162, 210, 255, 0.5);
   text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
@@ -356,7 +423,6 @@ audio::-webkit-media-controls-volume-slider {
   transform: scale(1.1) rotate(-3deg);
 }
 
-/* Button to Page Lain */
 .page-navigation {
     text-align: center;
     margin: 35px 0;
@@ -373,7 +439,7 @@ audio::-webkit-media-controls-volume-slider {
   font-family: 'Pacifico', cursive;
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Funky bounce */
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   box-shadow: 0 5px 12px rgba(0,0,0,0.15);
   letter-spacing: 1.5px;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
@@ -389,7 +455,7 @@ footer {
   text-align: center;
   padding: 30px;
   margin-top: 45px;
-  background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-pink)); /* Gradient footer */
+  background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-pink));
   color: var(--white);
   border-radius: var(--border-radius-main) var(--border-radius-main) 0 0;
   font-size: 1.05em;
@@ -402,73 +468,94 @@ footer p {
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
-/* Floating hearts/stars animation */
+/* Floating elements animation */
 body::before, body::after {
   content: '✨';
   position: fixed;
   font-size: 2.8em;
   opacity: 0;
-  z-index: -10; /* Ensure it's really behind */
+  z-index: -10;
   animation: floatAcross 20s linear infinite, fadeInOut 20s linear infinite;
-  will-change: transform, opacity; /* Performance hint */
+  will-change: transform, opacity;
 }
 
 body::before {
   content: '💖';
-  left: -5%; /* Start off-screen */
+  left: -10%; /* Start further off-screen to ensure full travel */
   top: 10%;
   animation-delay: 0s;
   font-size: 2.2em;
+  --direction: 1; /* For LTR movement */
 }
 
 body::after {
   content: '🌸';
-  right: -5%; /* Start off-screen */
+  left: -10%; /* Start from left for both, or vary starting side */
+  /* right: -10%; use 'left' and control with --direction for consistency */
   top: 60%;
   animation-delay: 7s;
   font-size: 2.5em;
-  animation-duration: 25s; /* Vary duration */
+  animation-duration: 25s;
+  --direction: -1; /* For RTL-like movement from the other side if desired, or different X target */
+  /* To make it appear from right, set left: 110vw and --direction: -1 */
 }
 
 @keyframes floatAcross {
-  0% { transform: translateX(0vw) translateY(0) rotate(0deg); opacity: 0; }
-  10% { opacity: 0.7; }
-  50% { transform: translateX(calc(var(--direction, 1) * 100vw)) translateY(calc(var(--direction, 1) * -30vh)) rotate(180deg); }
-  90% { opacity: 0.7; }
-  100% { transform: translateX(calc(var(--direction, 1) * 110vw)) translateY(calc(var(--direction, 1) * -40vh)) rotate(360deg); opacity: 0; }
+  0% { transform: translateX(calc(var(--direction, 1) * -10vw)) translateY(0) rotate(0deg); opacity: 0; } /* Start off-screen */
+  10% { opacity: 0.6; }
+  50% { transform: translateX(calc(var(--direction, 1) * 50vw)) translateY(calc(var(--direction, 1) * -25vh)) rotate(180deg); } /* Mid-screen */
+  90% { opacity: 0.6; }
+  100% { transform: translateX(calc(var(--direction, 1) * 110vw)) translateY(calc(var(--direction, 1) * -50vh)) rotate(360deg); opacity: 0; } /* End off-screen */
 }
-/* For body::before, set --direction to 1 (default, LTR), for body::after, you could set --direction to -1 (RTL) if desired through JS or more specific CSS */
-body::before { --direction: 1; }
-body::after { --direction: -1; animation-name: floatAcrossAlt; } /* Use a slightly different path or timing */
+/* The body::after will naturally move LTR if --direction is not effectively changing its path start to right.
+   To make one float from right to left, you'd typically set its initial `right: -10%` and adjust translateX.
+   Or, with `left` and `translateX` as is, `--direction: -1` in `translateX` will make it aim towards left edge.
+   Let's simplify: one starts left, one starts right.
+*/
 
-@keyframes floatAcrossAlt { /* Example of slightly different movement for variety */
-  0% { transform: translateX(0vw) translateY(0) rotate(0deg); opacity: 0; }
-  10% { opacity: 0.7; }
-  50% { transform: translateX(calc(var(--direction, -1) * 100vw)) translateY(calc(var(--direction, -1) * 20vh)) rotate(-150deg); }
-  90% { opacity: 0.7; }
-  100% { transform: translateX(calc(var(--direction, -1) * 110vw)) translateY(calc(var(--direction, -1) * 30vh)) rotate(-300deg); opacity: 0; }
+body::after { /* Overriding for right-to-left feel */
+  content: '🌸';
+  right: -10%; /* Start from right */
+  left: auto; /* Important to unset left */
+  top: 60%;
+  animation-delay: 7s;
+  font-size: 2.5em;
+  animation-duration: 25s;
+  animation-name: floatAcrossRightToLeft; /* Use a different animation for clarity */
+}
+
+@keyframes floatAcrossRightToLeft {
+  0% { transform: translateX(10vw) translateY(0) rotate(0deg); opacity: 0; } /* Start off-screen right */
+  10% { opacity: 0.6; }
+  50% { transform: translateX(-50vw) translateY(20vh) rotate(-180deg); } /* Mid-screen */
+  90% { opacity: 0.6; }
+  100% { transform: translateX(-110vw) translateY(40vh) rotate(-360deg); opacity: 0; } /* End off-screen left */
 }
 
 
 @keyframes fadeInOut {
   0%, 100% { opacity: 0; }
-  10%, 90% { opacity: 0.6; } /* Keep them slightly transparent */
+  10%, 90% { opacity: 0.5; } /* Slightly more subtle */
 }
 
 
-/* Small screen adjustments */
-@media (max-width: 768px) {
-  header .header-content {
-    flex-direction: column;
+/* Responsive Adjustments */
+@media (min-width: 1400px) {
+  main, #player-container, .header-content {
+    max-width: 1000px;
   }
-  nav ul {
-    flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .header-content {
     gap: 10px;
   }
+  nav ul {
+    gap: 8px;
+  }
   nav ul li a {
-    display: block;
-    font-size: 1.1em;
-    padding: 10px 18px;
+    font-size: 1em;
+    padding: 9px 15px;
   }
   h1.main-title {
     font-size: 2.4em;
@@ -479,6 +566,7 @@ body::after { --direction: -1; animation-name: floatAcrossAlt; } /* Use a slight
   .controls button {
     padding: 12px 22px;
     font-size: 1em;
+    margin: 5px; /* Add margin for wrapping */
   }
   #audio {
     width: 95%;
@@ -492,16 +580,21 @@ body::after { --direction: -1; animation-name: floatAcrossAlt; } /* Use a slight
       left: 15px;
   }
   .gradient-hr { width: 85%; }
+  .gallery-item-placeholder { width: 120px; height: 120px; font-size: 2em; }
 }
 
 @media (max-width: 480px) {
     body {
-        font-size: 14.5px; /* Adjust base font */
+        font-size: 14.5px;
+        background-image: none; /* Optionally remove dot background on very small screens for performance/clarity */
     }
-    .header-content { gap: 10px; }
+    .header-content { gap: 10px; padding: 0 10px;}
     .profile-icon { width: 70px; height: 70px; font-size: 2.5em; }
+    nav ul { flex-direction: column; align-items: center; } /* Stack nav items fully */
+    nav ul li a { display: block; width: 80%; text-align: center;}
+
     h1.main-title {
-        font-size: 2em;
+        font-size: 1.8em;
         text-shadow: 2px 2px 0px var(--white), 3px 3px 0px rgba(249, 194, 214, 0.7);
     }
     h2 { font-size: 1.7em; }
@@ -510,7 +603,10 @@ body::after { --direction: -1; animation-name: floatAcrossAlt; } /* Use a slight
     .cute-button { font-size: 1.1em; padding: 14px 28px; }
     #contact ul { padding-left: 15px; }
     #contact ul li { font-size: 1.1em; }
-    .controls button { margin: 5px; padding: 10px 18px; }
+    .controls button { margin: 5px; padding: 10px 15px; font-size: 0.9em;}
     footer { padding: 25px; }
-    body::before, body::after { display: none; } /* Optionally hide intensive animations on very small screens */
+    body::before, body::after { display: none; } /* Hide intensive animations */
+    .cute-section { padding: 20px; }
+    .gallery-placeholder { gap: 10px; }
+    .gallery-item-placeholder { width: 100px; height: 100px; font-size: 1.8em; }
 }
