@@ -1,109 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- music/Genshin Impact_ Coruscating Street BGM OST [Extended].mp3 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>:v</title>
+  <title>Ak1rin's Cute Corner 💖✨</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍥</text></svg>">
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="sparkle-cursor"></div>
+
   <header>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Link</a></li>
-      </ul>
-    </nav>
+    <div class="header-content">
+      <div class="profile-icon">🍥</div>
+      <nav>
+        <ul>
+          <li><a href="#about">🌸 About Me 🌸</a></li>
+          <li><a href="#projects">✨ My Projects ✨</a></li>
+          <li><a href="#contact">💌 Links & Contact 💌</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
+
   <main>
-    <section id="about">
-      <h1>Ak1rin</h1>
-      <p>Welcome to my GitHub profile!</p>
+    <section id="about" class="cute-section">
+      <h1 class="main-title"><span>Welcome to Ak1rin's Page!</span></h1>
+      <p class="intro-text">Hello there, lovely visitor! So glad you stopped by! 💖</p>
       <p>Susah bener njir ngoding, gayakin bisa sih, udah seminggu stuck di html kocak geming.</p>
+      <p class="motivation-text">But I'm trying my best and learning new things every day! ✨頑張って！✨</p>
     </section>
-    
-      <div class="gradient-hr"></div>
-    
-    <section id="projects">
-      <h2>Featured Projects</h2>
-      <ul style="list-style-type:none;">
+
+    <div class="gradient-hr"></div>
+
+    <section id="projects" class="cute-section">
+      <h2>🎀 Featured Projects 🎀</h2>
+      <ul style="list-style-type:none; padding-left: 0;">
         <li>
           <a href="https://github.com/Ak1rin/main" style="text-decoration:none">
-            <h3>GitHub profile</h3>
+            <h3>My GitHub Profile Page 💻</h3>
           </a>
-            <p>baru bisa buat ini njir, ngarahnya kesini sih harusnya kalau di klik</p>
+          <p>baru bisa buat ini njir, ngarahnya kesini sih harusnya kalau di klik. It's a start! 🎉</p>
         </li>
-      </ul>
+        </ul>
     </section>
-    
-      <div class="gradient-hr"></div>
-    
-    <section id="contact">
-      <h2>Link</h2>
-      <p>Gatau link apaan ntar ah</p>
+
+    <div class="gradient-hr"></div>
+
+    <section id="contact" class="cute-section">
+      <h2>💖 Connect & Links 💖</h2>
+      <p>Gatau link apaan ntar ah - I'll figure out more cute links soon! 🌟</p>
       <ul>
-        <li><a href="https://keep.google.com/">Google Keep</a></li>
-        <li><a href="https://www.seadc.ccms.teleperformance.com/ccms-bin/home.pl">CCMS</a></li>
-        <li><a href="https://x.com/login">Twitter</a></li>
-      </ul>
+        <li><a href="https://keep.google.com/" target="_blank" rel="noopener noreferrer">📝 Google Keep</a></li>
+        <li><a href="https://www.seadc.ccms.teleperformance.com/ccms-bin/home.pl" target="_blank" rel="noopener noreferrer">🔗 CCMS</a></li>
+        <li><a href="https://x.com/login" target="_blank" rel="noopener noreferrer">🐦 Twitter / X</a></li>
+        </ul>
     </section>
   </main>
-  
-  <hr class="gradient-hr">
-  
-<div id="player">
-    <h2 id="song-title"></h2>
-    <audio id="audio" controls></audio>
-    <div class="controls">
-        <button id="prev-button">‹</button>
-        <button id="next-button">›</button>
+
+  <div id="player-container">
+    <div id="player">
+      <h2 id="song-title"></h2>
+      <audio id="audio" controls></audio>
+      <div class="controls">
+        <button id="prev-button">‹ Prev</button>
+        <button id="next-button">Next ›</button>
+      </div>
     </div>
-</div>
+  </div>
+
+  <div class="page-navigation">
+    <a href="Kerja3.html"><button class="cute-button">Go to Page Lain 🚀</button></a>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Ak1rin 🌸 Made with love & a sprinkle of magic ✨</p>
+  </footer>
 
 <script>
-    // Define the playlist
-    const playlist = [
-        { title: "Sumeru", src: "music/1-01. Sumeru.mp3" },
-        { title: "Coruscating Street", src: "music/Genshin Impact_ Coruscating Street BGM OST [Extended].mp3" },
-        { title: "Dragonspine", src: "music/Genshin Impact OST Album - Vortex of Legends.mp3" }
-    ];
+  // Define the playlist
+  const playlist = [
+    { title: "Sumeru Theme 🍃", src: "music/1-01. Sumeru.mp3" },
+    { title: "Coruscating Street ✨", src: "music/Genshin Impact_ Coruscating Street BGM OST [Extended].mp3" },
+    { title: "Dragonspine Peaks 🏔️", src: "music/Genshin Impact OST Album - Vortex of Legends.mp3" }
+  ];
 
-    // Get the audio element and controls
-    const audio = document.getElementById('audio');
-    const songTitle = document.getElementById('song-title');
-    const prevButton = document.getElementById('prev-button');
-    const nextButton = document.getElementById('next-button');
+  // Get the audio element and controls
+  const audio = document.getElementById('audio');
+  const songTitle = document.getElementById('song-title');
+  const prevButton = document.getElementById('prev-button');
+  const nextButton = document.getElementById('next-button');
 
-    // Initialize the current song index
-    let currentSongIndex = 0;
+  // Initialize the current song index
+  let currentSongIndex = 0;
 
-    // Function to play the current song
-    function playCurrentSong() {
-        audio.src = playlist[currentSongIndex].src;
-        songTitle.textContent = playlist[currentSongIndex].title;
-        audio.play();
+  // Function to play the current song
+  function playCurrentSong() {
+    if (playlist.length === 0) {
+      songTitle.textContent = "No songs in playlist!";
+      return;
     }
+    audio.src = playlist[currentSongIndex].src;
+    songTitle.textContent = playlist[currentSongIndex].title;
+    audio.play().catch(error => console.error("Error playing audio:", error)); // Catch for autoplay policy issues
+  }
 
-    // Play the first song
+  // Play the first song
+  if (playlist.length > 0) {
     playCurrentSong();
+  } else {
+    songTitle.textContent = "Playlist is empty 🎵";
+  }
 
-    // Add event listeners to the controls
-    prevButton.addEventListener('click', function() {
-        currentSongIndex = (currentSongIndex - 1 + playlist.length) % playlist.length;
-        playCurrentSong();
-    });
+  // Add event listeners to the controls
+  prevButton.addEventListener('click', function() {
+    if (playlist.length === 0) return;
+    currentSongIndex = (currentSongIndex - 1 + playlist.length) % playlist.length;
+    playCurrentSong();
+  });
 
-    nextButton.addEventListener('click', function() {
-        currentSongIndex = (currentSongIndex + 1) % playlist.length;
-        playCurrentSong();
-    });
+  nextButton.addEventListener('click', function() {
+    if (playlist.length === 0) return;
+    currentSongIndex = (currentSongIndex + 1) % playlist.length;
+    playCurrentSong();
+  });
+
+  // Optional: Cute sparkle cursor effect
+  const cursor = document.querySelector('.sparkle-cursor');
+  document.addEventListener('mousemove', (e) => {
+    if (cursor) {
+      cursor.style.left = e.pageX + 'px';
+      cursor.style.top = e.pageY + 'px';
+    }
+  });
 </script>
-  <a href="Kerja3.html"><button>Go to Page Lain</button></a>
-  <footer>
-    <p>&copy; 2024 Ak1rin</p>
-  </footer>
 </body>
 </html>
