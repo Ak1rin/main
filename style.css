@@ -1,104 +1,516 @@
+/* style.css */
+:root {
+  --pastel-pink: #F9C2D6; /* Lighter pink */
+  --pastel-blue: #A2D2FF; /* Soft blue */
+  --white: #FFFFFF;
+  --dark-pink-text: #E87A90; /* For headings, stronger contrast */
+  --text-color: #5c5c5c; /* Soft dark grey for text */
+  --light-bg: #FFF8FB; /* Very light pink for section backgrounds */
+  --border-radius-main: 20px; /* Slightly more rounded */
+  --border-radius-small: 12px;
+}
+
 body {
-  background-color: #ffffff;
-  font-family: Arial, sans-serif;
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--white);
+  color: var(--text-color);
   margin: 0;
   padding: 0;
+  line-height: 1.7;
+  overflow-x: hidden;
+  /* background-image: url('your-cute-tileable-background.png'); /* Optional: subtle background pattern */
+}
+
+/* Sparkle cursor - basic idea */
+.sparkle-cursor {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, var(--pastel-pink) 30%, rgba(162,210,255,0.5) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.2s ease-out, transform 0.1s ease-out;
+  z-index: 9999;
+}
+body:hover .sparkle-cursor {
+    opacity: 0.7;
 }
 
 header {
-  background-color: #87CEEB;
-  color: #fff;
-  padding: 1em;
+  background: linear-gradient(135deg, var(--pastel-pink), var(--pastel-blue));
+  padding: 25px 0;
+  margin-bottom: 35px;
   text-align: center;
+  border-bottom: 5px solid var(--white);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Softer shadow */
 }
 
-.gradient-hr {
-  height: 6px;
-  border: none;
-  border-radius: 6px;
-  background: repeating-linear-gradient(to right, #FFC5C5 20%, #C5CAE9 50%, #FFFFFF 30%);
-  display: block;
-  width: 100%;
-  margin: 20px 0;
+.header-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-icon {
+    font-size: 3.5em;
+    background-color: var(--white);
+    color: var(--pastel-pink);
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(249, 194, 214, 0.6); /* Pink glow */
+    margin-bottom: 10px;
+    border: 3px solid var(--pastel-blue); /* Cute border */
 }
 
 nav ul {
-  list-style: none;
-  margin: 0;
+  list-style-type: none;
   padding: 0;
+  margin: 0;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap; /* Allow nav items to wrap on smaller screens */
+  justify-content: center; /* Center items when they wrap */
+  gap: 12px;
 }
 
-nav li {
-  margin-right: 20px;
-}
-
-nav a {
-  color: #fff;
+nav ul li a {
   text-decoration: none;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1.15em;
+  padding: 12px 22px;
+  border-radius: var(--border-radius-small);
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  background-color: rgba(255, 255, 255, 0.25); /* Slightly more visible bg */
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+nav ul li a:hover {
+  background-color: var(--white);
+  color: var(--pastel-pink);
+  transform: translateY(-4px) scale(1.05); /* Enhanced lift */
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
 }
 
 main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2em;
+  padding: 0 20px;
+  max-width: 800px;
+  margin: 0 auto 30px auto;
 }
 
-section {
-  background-color: #F8C8DC;
-  padding: 1em;
-  margin-bottom: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.cute-section {
+  margin-bottom: 35px;
+  padding: 30px; /* More padding */
+  background-color: var(--light-bg);
+  border-radius: var(--border-radius-main);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  border: 3px dashed var(--pastel-blue);
+  position: relative;
+  overflow: hidden; /* For inner decorations */
 }
 
-.player {
-    width: 50%;
-    margin: auto;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+.cute-section::before {
+    content: '💖';
+    position: absolute;
+    top: -18px; /* Adjusted for new border-radius/padding */
+    left: 25px;
+    font-size: 2em;
+    opacity: 0.9;
+    transform: rotate(-15deg);
+    text-shadow: 0 0 5px var(--white);
+}
+#projects.cute-section::before { content: '✨'; transform: rotate(10deg); top:-15px; left: auto; right: 25px;}
+#contact.cute-section::before { content: '💌'; transform: rotate(5deg); top:-18px; left: 20px; }
+
+
+h1.main-title {
+  font-family: 'Pacifico', cursive;
+  color: var(--dark-pink-text);
+  font-size: 3em; /* Even bigger! */
+  text-align: center;
+  margin-bottom: 25px;
+  line-height: 1.2;
+  text-shadow: 3px 3px 0px var(--white), 5px 5px 0px rgba(249, 194, 214, 0.75);
+}
+h1.main-title span {
+    display: inline-block;
+    padding: 8px 18px;
+}
+
+
+h2 {
+  font-family: 'Pacifico', cursive;
+  color: var(--dark-pink-text);
+  font-size: 2.4em;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 25px;
+  padding-bottom: 12px;
+  position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 120px;
+    height: 5px;
+    background: linear-gradient(to right, var(--pastel-blue), var(--pastel-pink), var(--pastel-blue));
+    border-radius: 3px;
+    margin: 12px auto 0;
+    animation: pulse-line 2s infinite alternate;
+}
+
+@keyframes pulse-line {
+    from { opacity: 0.7; transform: scaleX(0.8); }
+    to { opacity: 1; transform: scaleX(1); }
+}
+
+
+p {
+  color: var(--text-color);
+  text-align: center;
+  margin-bottom: 18px;
+  font-size: 1.1em;
+}
+
+p.intro-text {
+  font-size: 1.35em;
+  color: var(--dark-pink-text);
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+p.motivation-text {
+  font-style: italic;
+  color: #659dbd; /* A slightly deeper pastel blue for contrast */
+  font-weight: bold;
+  margin-top: 22px;
+  padding: 10px;
+  background-color: rgba(162, 210, 255, 0.1);
+  border-radius: var(--border-radius-small);
+  display: inline-block; /* To contain background */
+}
+
+
+a {
+  color: var(--pastel-blue);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.2s ease;
+}
+
+a:hover {
+  color: var(--pastel-pink);
+  text-decoration: underline wavy var(--pastel-pink) 2px;
+  text-shadow: 0 0 8px rgba(249, 194, 214, 0.6);
+  transform: scale(1.03); /* Slight scale on general links too */
+}
+
+#projects ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#projects ul li {
+  background-color: var(--white);
+  padding: 22px;
+  border-radius: var(--border-radius-small);
+  margin-bottom: 18px;
+  border: 2px solid var(--pastel-pink); /* Thicker border */
+  box-shadow: 0 5px 10px rgba(249, 194, 214, 0.4);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+#projects ul li:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 8px 16px rgba(249, 194, 214, 0.6);
+}
+
+#projects ul li a h3 {
+  color: var(--dark-pink-text);
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+#projects ul li a:hover h3 { /* Keep link styling on H3 separate from general a:hover */
+  color: var(--pastel-blue);
+}
+#projects ul li p {
+    font-size: 1em;
+    color: var(--text-color);
+}
+
+.gradient-hr {
+  border: 0;
+  height: 6px;
+  background-image: linear-gradient(to right, var(--pastel-blue), var(--pastel-pink), var(--white), var(--pastel-pink), var(--pastel-blue));
+  margin: 45px auto;
+  border-radius: 6px;
+  width: 70%;
+  box-shadow: 0 0 10px rgba(162, 210, 255, 0.3), 0 0 10px rgba(249, 194, 214, 0.3);
+}
+
+#contact ul {
+  list-style-type: '💌 ';
+  padding-left: 25px;
+  text-align: center;
+  margin: 0 auto;
+  display: table;
+}
+
+#contact ul li {
+  margin-bottom: 15px;
+  font-size: 1.15em;
+}
+#contact ul li a {
+    font-weight: normal;
+    padding: 3px 0; /* Add some padding for hover effect to look better */
+    display: inline-block; /* Needed for padding/transform */
+}
+#contact ul li a:hover {
+    font-weight: bold;
+    transform: translateX(5px); /* Cute little nudge */
+}
+
+
+/* Music Player Styling */
+#player-container {
+    max-width: 800px;
+    margin: 35px auto;
 }
 
 #player {
-  margin: 0 auto;
-  width: 50%; 
-  text-align: center; 
-}
-#songList {
-    margin-top: 20px;
-}
-
-#songList ul {
-    list-style: none;
-    padding: 0;
+  padding: 30px;
+  background-color: var(--light-bg);
+  border-radius: var(--border-radius-main);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  border: 3px dashed var(--pastel-pink);
 }
 
-#songList li {
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-    cursor: pointer;
+#player #song-title {
+  color: var(--dark-pink-text);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700; /* Bolder title */
+  font-size: 1.6em;
+  margin-bottom: 18px;
+  min-height: 1.5em; /* Prevent layout shift */
 }
 
-#songList li:hover {
-    background-color: #ddd;
-}
-h1, h2, h3 {
-  color: #333;
+#audio {
+  width: 90%;
+  margin-bottom: 22px;
+  border-radius: var(--border-radius-small);
+  border: 2px solid var(--pastel-blue);
+  outline: none;
 }
 
-img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 10px;
+audio::-webkit-media-controls-panel {
+  background-color: rgba(249, 194, 214, 0.7) !important; /* Pink with some transparency */
+  border-radius: var(--border-radius-small);
+  padding: 8px;
+}
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-timeline,
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display,
+audio::-webkit-media-controls-mute-button,
+audio::-webkit-media-controls-volume-slider {
+  filter: saturate(1.3) brightness(1.05);
+  border-radius: 8px;
+  color: var(--white) !important; /* Try to make icons white */
+}
+
+
+.controls button {
+  background: linear-gradient(135deg, var(--pastel-blue), #BBE1FA);
+  color: white;
+  border: 2px solid var(--white); /* White border */
+  padding: 13px 28px;
+  margin: 0 10px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1.05em;
+  font-weight: 700;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Elastic transition */
+  box-shadow: 0 4px 8px rgba(162, 210, 255, 0.5);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.controls button:hover {
+  background: linear-gradient(135deg, var(--pastel-pink), #FFCAD4);
+  transform: scale(1.15) rotate(7deg);
+  box-shadow: 0 6px 12px rgba(249, 194, 214, 0.7);
+}
+.controls button:active {
+  transform: scale(1.1) rotate(-3deg);
+}
+
+/* Button to Page Lain */
+.page-navigation {
+    text-align: center;
+    margin: 35px 0;
+}
+
+.cute-button {
+  display: inline-block;
+  padding: 16px 32px;
+  background: linear-gradient(45deg, var(--pastel-pink), var(--pastel-blue));
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.25em;
+  font-family: 'Pacifico', cursive;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Funky bounce */
+  box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+  letter-spacing: 1.5px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.cute-button:hover {
+  transform: scale(1.12) rotate(-4deg);
+  box-shadow: 0 7px 18px rgba(0,0,0,0.25);
+  background: linear-gradient(45deg, var(--pastel-blue), var(--pastel-pink));
 }
 
 footer {
-  background-color: #87CEEB;
-  color: #fff;
-  padding: 1em;
   text-align: center;
-  clear: both;
+  padding: 30px;
+  margin-top: 45px;
+  background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-pink)); /* Gradient footer */
+  color: var(--white);
+  border-radius: var(--border-radius-main) var(--border-radius-main) 0 0;
+  font-size: 1.05em;
+  font-family: 'Nunito', sans-serif;
+  box-shadow: 0 -5px 10px rgba(0,0,0,0.05);
+}
+footer p {
+    color: var(--white);
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Floating hearts/stars animation */
+body::before, body::after {
+  content: '✨';
+  position: fixed;
+  font-size: 2.8em;
+  opacity: 0;
+  z-index: -10; /* Ensure it's really behind */
+  animation: floatAcross 20s linear infinite, fadeInOut 20s linear infinite;
+  will-change: transform, opacity; /* Performance hint */
+}
+
+body::before {
+  content: '💖';
+  left: -5%; /* Start off-screen */
+  top: 10%;
+  animation-delay: 0s;
+  font-size: 2.2em;
+}
+
+body::after {
+  content: '🌸';
+  right: -5%; /* Start off-screen */
+  top: 60%;
+  animation-delay: 7s;
+  font-size: 2.5em;
+  animation-duration: 25s; /* Vary duration */
+}
+
+@keyframes floatAcross {
+  0% { transform: translateX(0vw) translateY(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.7; }
+  50% { transform: translateX(calc(var(--direction, 1) * 100vw)) translateY(calc(var(--direction, 1) * -30vh)) rotate(180deg); }
+  90% { opacity: 0.7; }
+  100% { transform: translateX(calc(var(--direction, 1) * 110vw)) translateY(calc(var(--direction, 1) * -40vh)) rotate(360deg); opacity: 0; }
+}
+/* For body::before, set --direction to 1 (default, LTR), for body::after, you could set --direction to -1 (RTL) if desired through JS or more specific CSS */
+body::before { --direction: 1; }
+body::after { --direction: -1; animation-name: floatAcrossAlt; } /* Use a slightly different path or timing */
+
+@keyframes floatAcrossAlt { /* Example of slightly different movement for variety */
+  0% { transform: translateX(0vw) translateY(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.7; }
+  50% { transform: translateX(calc(var(--direction, -1) * 100vw)) translateY(calc(var(--direction, -1) * 20vh)) rotate(-150deg); }
+  90% { opacity: 0.7; }
+  100% { transform: translateX(calc(var(--direction, -1) * 110vw)) translateY(calc(var(--direction, -1) * 30vh)) rotate(-300deg); opacity: 0; }
+}
+
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  10%, 90% { opacity: 0.6; } /* Keep them slightly transparent */
+}
+
+
+/* Small screen adjustments */
+@media (max-width: 768px) {
+  header .header-content {
+    flex-direction: column;
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+  nav ul li a {
+    display: block;
+    font-size: 1.1em;
+    padding: 10px 18px;
+  }
+  h1.main-title {
+    font-size: 2.4em;
+  }
+  h2 {
+    font-size: 2em;
+  }
+  .controls button {
+    padding: 12px 22px;
+    font-size: 1em;
+  }
+  #audio {
+    width: 95%;
+  }
+  body::before, body::after {
+    font-size: 2em;
+  }
+  .cute-section::before {
+      font-size: 1.6em;
+      top: -12px;
+      left: 15px;
+  }
+  .gradient-hr { width: 85%; }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14.5px; /* Adjust base font */
+    }
+    .header-content { gap: 10px; }
+    .profile-icon { width: 70px; height: 70px; font-size: 2.5em; }
+    h1.main-title {
+        font-size: 2em;
+        text-shadow: 2px 2px 0px var(--white), 3px 3px 0px rgba(249, 194, 214, 0.7);
+    }
+    h2 { font-size: 1.7em; }
+    h2::after { width: 90px; height: 4px; }
+    p.intro-text { font-size: 1.2em; }
+    .cute-button { font-size: 1.1em; padding: 14px 28px; }
+    #contact ul { padding-left: 15px; }
+    #contact ul li { font-size: 1.1em; }
+    .controls button { margin: 5px; padding: 10px 18px; }
+    footer { padding: 25px; }
+    body::before, body::after { display: none; } /* Optionally hide intensive animations on very small screens */
 }
