@@ -34,7 +34,7 @@
       <p class="motivation-text">But I'm trying my best and learning new things every day! ✨頑張って！✨</p>
     </section>
     
-    <section id="social-connect" class="special-social-section">
+   <section id="social-connect" class="special-social-section">
   <h2>Let's Be Friends! <span class="wave-emoji">👋</span>💖</h2>
   <p>You can find me fluttering around on these platforms:</p>
   <div class="social-links-container">
@@ -47,128 +47,126 @@
     <a href="YOUR_TWITTER_PROFILE_LINK_HERE" class="social-link twitter" target="_blank" rel="noopener noreferrer">
       <span class="social-icon-placeholder">TW</span> Twitter
     </a>
-    </div>
+  </div>
 </section>
-<style>
-/* CSS for the Special Social Connect Section */
-/* Make sure your CSS variables (--pastel-pink, --pastel-blue, --white, etc.) and fonts are defined in your main style.css */
 
+<style>
+:root {
+  --mint-green: #b8f2e6;
+  --pastel-pink: #f7c4d4;
+  --light-pink: #ffe0ef;
+  --soft-white: #fffafa;
+  --cute-purple: #e0bbff;
+}
+
+/* Cute Background Section */
 .special-social-section {
-  background-color: var(--pastel-blue); /* Distinct background */
-  color: var(--white); /* Default text color for this section */
-  padding: 35px 25px; /* Generous padding */
-  margin: 40px auto; /* Centering and spacing from other sections */
-  border-radius: var(--border-radius-main, 20px); /* Use existing variable or a default */
-  border: 4px solid var(--white); /* Clean white border */
-  box-shadow: 0 0 25px rgba(249, 194, 214, 0.6), /* Pink glow */
-              0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle general shadow */
+  background: linear-gradient(145deg, var(--mint-green), var(--light-pink));
+  color: var(--pastel-pink);
+  padding: 35px 25px;
+  margin: 40px auto;
+  border-radius: 20px;
+  border: 4px solid var(--pastel-pink);
+  box-shadow: 0 0 30px rgba(247, 196, 212, 0.5), 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
-  position: relative; /* For potential future decorations */
-  overflow: hidden; /* Ensures glow/shadows are neat */
+  position: relative;
+  overflow: hidden;
 }
 
 .special-social-section h2 {
-  font-family: 'Pacifico', cursive; /* Use your cute script font */
-  color: var(--white);
-  font-size: 2.6em; /* Nice and big */
+  font-family: 'Pacifico', cursive;
+  color: var(--pastel-pink);
+  font-size: 2.6em;
   margin-top: 0;
   margin-bottom: 15px;
-  text-shadow: 2px 2px 0px var(--pastel-pink), /* Pink shadow for depth */
-               0 0 10px var(--pastel-pink); /* Pink glow for title */
+  text-shadow: 2px 2px 0px var(--soft-white), 0 0 10px var(--pastel-pink);
 }
 
-.special-social-section .wave-emoji {
+.special-social-section p {
+  color: var(--pastel-pink);
+  font-size: 1.15em;
+  margin-bottom: 30px;
+  opacity: 0.95;
+}
+
+.wave-emoji {
   display: inline-block;
   animation: waveAnimation 2.5s infinite;
   transform-origin: 70% 70%;
 }
 
 @keyframes waveAnimation {
-  0% { transform: rotate(0deg); }
+  0%, 100% { transform: rotate(0deg); }
   10% { transform: rotate(14deg); }
   20% { transform: rotate(-8deg); }
   30% { transform: rotate(14deg); }
   40% { transform: rotate(-4deg); }
   50% { transform: rotate(10deg); }
   60% { transform: rotate(0deg); }
-  100% { transform: rotate(0deg); }
-}
-
-.special-social-section p {
-  color: var(--white);
-  font-size: 1.15em;
-  margin-bottom: 30px;
-  opacity: 0.9; /* Slightly softer paragraph text */
 }
 
 .social-links-container {
   display: flex;
-  flex-wrap: wrap; /* Allow links to wrap on smaller screens */
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 20px; /* Space between links */
+  gap: 20px;
 }
 
 .social-link {
-  display: inline-flex; /* Align icon and text nicely */
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--white);
-  color: var(--pastel-pink); /* Pink text on white button */
+  background: var(--soft-white);
+  color: var(--pastel-pink);
   padding: 12px 25px;
-  border-radius: 50px; /* Cute pill shape */
+  border-radius: 40px;
   text-decoration: none;
-  font-weight: 700; /* From Nunito font typically */
+  font-weight: 700;
   font-size: 1.1em;
-  border: 2px solid var(--pastel-pink); /* Pink border */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
+  border: 2px solid var(--pastel-pink);
+  box-shadow: 0 4px 10px rgba(248, 203, 218, 0.3);
+  transition: all 0.3s ease-in-out;
 }
 
 .social-link .social-icon-placeholder {
   margin-right: 10px;
   font-weight: bold;
-  /* You could style each icon placeholder differently if desired */
-  /* e.g., .social-link.facebook .social-icon-placeholder { color: #3b5998; } */
+  color: var(--cute-purple);
 }
 
 .social-link:hover,
 .social-link:focus {
-  background-color: var(--pastel-pink); /* Pink background on hover */
-  color: var(--white); /* White text on hover */
-  border-color: var(--white); /* White border on hover */
-  transform: translateY(-5px) scale(1.08); /* Lift and grow effect */
+  background-color: var(--pastel-pink);
+  color: var(--soft-white);
+  border-color: var(--cute-purple);
+  transform: translateY(-5px) scale(1.05);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Specific hover colors for a bit more flair (optional) */
-/*
-.social-link.facebook:hover { background-color: #3b5998; color: white; border-color: white; }
-.social-link.discord:hover { background-color: #5865F2; color: white; border-color: white; }
-.social-link.twitter:hover { background-color: #1DA1F2; color: white; border-color: white; }
-*/
-
-/* Responsive adjustments for the social section if needed */
 @media (max-width: 480px) {
   .special-social-section h2 {
     font-size: 2em;
   }
+
   .special-social-section p {
     font-size: 1em;
   }
+
   .social-link {
     font-size: 1em;
     padding: 10px 20px;
-    width: calc(80% - 20px); /* Make buttons take more width on small screens */
+    width: calc(80% - 20px);
     justify-content: center;
   }
+
   .social-links-container {
-    flex-direction: column; /* Stack links vertically */
+    flex-direction: column;
     align-items: center;
     gap: 15px;
   }
 }
-
 </style>
+
 
 
     <div class="gradient-hr"></div>
