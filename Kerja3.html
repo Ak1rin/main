@@ -371,17 +371,17 @@
         </div>
 
         <div class="form-group">
-          <label for="resi"><i class="fas fa-barcode"></i> Nomor Resi Ajaib</label>
+          <label for="resi"><i class="fas fa-barcode"></i> Nomor Resi</label>
           <input type="text" id="resi" placeholder="Contoh: STECH12345">
         </div>
 
         <div class="form-group">
-          <label for="pengirim"><i class="fas fa-user-astronaut"></i> Nama Pengirim Kece</label>
+          <label for="pengirim"><i class="fas fa-user-astronaut"></i> Nama Pengirim</label>
           <input type="text" id="pengirim" placeholder="Nama lengkap pengirim">
         </div>
 
         <div class="form-group">
-          <label for="penerima"><i class="fas fa-user-friends"></i> Nama Penerima Tersayang</label>
+          <label for="penerima"><i class="fas fa-user-friends"></i> Nama Penerima</label>
           <input type="text" id="penerima" placeholder="Nama lengkap penerima">
         </div>
         
@@ -391,7 +391,7 @@
         </div>
 
         <div class="form-group">
-          <label for="berat"><i class="fas fa-feather-alt"></i> Berat (KG) - Ringan Kok!</label>
+          <label for="berat"><i class="fas fa-feather-alt"></i> Berat (KG)</label>
           <input type="number" id="berat" placeholder="Contoh: 10.5">
         </div>
       </div>
@@ -485,9 +485,9 @@
       const beratInput = document.getElementById('berat').value.trim();
 
       if (!city) { alert("Pilih kota tujuan dulu ya!"); return; }
-      if (!resi) { alert("Nomor resi ajaibnya jangan lupa diisi!"); return; }
-      if (!pengirim) { alert("Nama pengirim kece siapa nih?"); return; }
-      if (!penerima) { alert("Paketnya buat penerima tersayang siapa?"); return; }
+      if (!resi) { alert("Nomor resi jangan lupa diisi!"); return; }
+      if (!pengirim) { alert("Nama pengirim siapa nih?"); return; }
+      if (!penerima) { alert("Paketnya buat penerima siapa?"); return; }
       
       const koli = parseInt(koliValue);
       if (!koliValue || isNaN(koli) || koli <= 0) {
