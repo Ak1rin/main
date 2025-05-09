@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SINAR TRANS EXPRESS - Pengiriman Manis & Cepat!</title>
+  <title>SINAR TRANS EXPRESS</title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> {/* Updated Font Awesome link */}
   <style>
@@ -333,7 +333,7 @@
     <header>
       <img src="1000013343.jpg" alt="SINAR TRANS EXPRESS Logo" class="logo">
       <h1><i class="fas fa-gift icon"></i>SINAR TRANS EXPRESS</h1>
-      <p class="subtitle">Jasa Pengiriman Barang Manis, Cepat, Aman, dan Terpercaya <i class="fas fa-truck-fast"></i></p>
+      <p class="subtitle">STE Data Input experimental web <i class="fas fa-truck-fast"></i></p>
     </header>
 
     <section class="form-section">
@@ -341,7 +341,7 @@
         <div class="form-group">
           <label for="city"><i class="fas fa-map-pin"></i> Pilih Kota Tujuan</label>
           <select id="city" onchange="setPrices()">
-            <option value="">--Pilih Kota Manismu--</option>
+            <option value="">--Pilih Kota</option>
             <option value="Ambarawa">Ambarawa</option>
             <option value="Batang">Batang</option>
             <option value="Banyumas">Banyumas</option>
@@ -484,7 +484,7 @@
       const koliValue = document.getElementById('koli').value.trim(); // Koli is now number
       const beratInput = document.getElementById('berat').value.trim();
 
-      if (!city) { alert("Pilih kota tujuan manismu dulu ya!"); return; }
+      if (!city) { alert("Pilih kota tujuan dulu ya!"); return; }
       if (!resi) { alert("Nomor resi ajaibnya jangan lupa diisi!"); return; }
       if (!pengirim) { alert("Nama pengirim kece siapa nih?"); return; }
       if (!penerima) { alert("Paketnya buat penerima tersayang siapa?"); return; }
@@ -502,7 +502,7 @@
       }
 
       if (!cityRates[city]) {
-        alert("Hmm, tarif untuk kota ini belum ada di daftar manis kami.");
+        alert("Hmm, tarif untuk kota ini belum ada di daftar kami.");
         return;
       }
 
@@ -541,7 +541,7 @@
 
     function exportToExcel() {
       if (tableBody.rows.length === 0) {
-        alert("Belum ada data manis untuk di-export nih!");
+        alert("Belum ada data untuk di-export nih!");
         return;
       }
       const wb = XLSX.utils.book_new();
@@ -552,7 +552,7 @@
       
       const ws = XLSX.utils.table_to_sheet(tableToExport);
       XLSX.utils.book_append_sheet(wb, ws, 'SinarTransData');
-      XLSX.writeFile(wb, 'Laporan_Pengiriman_Manis.xlsx');
+      XLSX.writeFile(wb, 'Laporan_Pengiriman.xlsx');
     }
 
     function openMegaTransPage() {
