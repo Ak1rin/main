@@ -3,128 +3,154 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SINAR TRANS EXPRESS - Jasa Pengiriman Cepat & Terpercaya</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Pacifico&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>SINAR TRANS EXPRESS - Pengiriman Manis & Cepat!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> {/* Updated Font Awesome link */}
   <style>
     :root {
-      --primary-color: #FF6B6B;
-      --secondary-color: #4ECDC4;
-      --accent-color: #FFD3B6;
-      --dark-color: #2C3E50;
-      --light-color: #f8f9fa;
-      --white-color: #ffffff;
-      --grey-color: #e9ecef;
-      --border-radius: 12px;
-      --box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      --primary-lavender: #D7BDE2; /* Main Lavender */
+      --secondary-peach: #FAD7A0;   /* Main Peach */
+      --accent-yellow: #F9E79F;    /* Light Yellow for highlights */
+      --bg-main: #FDFAF6;          /* Very light cream/off-white for body */
+      --bg-container: #FFFFFF;
+      --text-dark: #6A5D7B;      /* Softer dark purple/grey */
+      --text-light: #A9A9A9;       /* Lighter grey for placeholders/secondary text */
+      --border-soft: #E8DAEF;      /* Soft lavender border */
+      --border-radius-cute: 12px;
+      --box-shadow-cute: 0 6px 20px rgba(0, 0, 0, 0.08);
+      --box-shadow-inset: inset 0 2px 4px rgba(0,0,0,0.04);
     }
 
     body {
-      font-family: 'Quicksand', sans-serif;
-      background: linear-gradient(135deg, #fff1f1, #f6fdfd);
+      font-family: 'Nunito', Arial, sans-serif;
+      background-color: var(--bg-main);
       margin: 0;
       padding: 0;
-      color: var(--dark-color);
-      line-height: 1.6;
+      color: var(--text-dark);
+      line-height: 1.7;
+      font-size: 16px;
     }
 
     .container {
       max-width: 1100px;
-      margin: 30px auto;
-      padding: 20px;
-      background-color: var(--white-color);
-      border-radius: var(--border-radius);
-      box-shadow: var(--box-shadow);
+      margin: 25px auto;
+      padding: 25px 30px;
+      background-color: var(--bg-container);
+      border-radius: var(--border-radius-cute);
+      box-shadow: var(--box-shadow-cute);
     }
 
     header {
       text-align: center;
-      margin-bottom: 40px;
-      padding-bottom: 20px;
-      border-bottom: 3px dotted var(--secondary-color);
-      background-color: var(--accent-color);
-      border-radius: var(--border-radius);
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-      padding-top: 10px;
+      margin-bottom: 35px;
+      padding-bottom: 25px;
+      border-bottom: 3px dashed var(--primary-lavender);
+      position: relative;
     }
 
-    header img {
-      max-height: 110px;
-      margin-bottom: 15px;
+    header::after { /* Decorative dots */
+        content: '...';
+        font-size: 2em;
+        color: var(--secondary-peach);
+        position: absolute;
+        bottom: -22px; /* Adjust based on font size and border */
+        left: 50%;
+        transform: translateX(-50%);
+        letter-spacing: 10px;
+    }
+
+
+    header img.logo {
+      max-height: 100px;
+      margin-bottom: 20px;
       border-radius: 50%;
-      border: 4px solid var(--white-color);
-      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+      border: 4px solid var(--secondary-peach);
+      padding: 5px;
+      background-color: var(--white-color);
+      box-shadow: 0 4px 10px rgba(215, 189, 226, 0.5); /* Lavender shadow */
     }
 
     header h1 {
-      font-family: 'Pacifico', cursive;
-      color: var(--primary-color);
-      font-size: 3em;
-      margin-bottom: 5px;
+      color: var(--primary-lavender);
+      font-family: 'Pacifico', cursive; /* Cute handwritten style font */
+      font-size: 3em; /* Larger */
+      margin-bottom: 8px;
+      font-weight: normal; /* Pacifico is already bold */
+    }
+    header h1 .icon {
+      color: var(--secondary-peach);
+      margin-right:10px;
+      font-size: 0.8em; /* Adjust icon size relative to h1 */
     }
 
-    header p {
-      font-family: 'Nunito', sans-serif;
-      color: #444;
-      font-size: 1.2em;
+
+    header p.subtitle {
+      color: var(--text-dark);
+      font-size: 1.15em;
+      font-weight: 600;
+    }
+    header p.subtitle .fa-truck-fast{
+        color: var(--primary-lavender);
     }
 
     .form-section {
-      background: var(--light-color);
+      background-color: var(--bg-main); /* Light cream background */
       padding: 30px;
-      border-radius: var(--border-radius);
-      margin-bottom: 40px;
-      position: relative;
-      border: 2px dashed var(--accent-color);
-    }
-
-    .form-section::before {
-      content: "✨ Formulir Pengiriman ✨";
-      position: absolute;
-      top: -18px;
-      left: 20px;
-      background: var(--light-color);
-      padding: 0 10px;
-      font-weight: bold;
-      color: var(--primary-color);
-      font-size: 1.1em;
+      border-radius: var(--border-radius-cute);
+      margin-bottom: 35px;
+      box-shadow: var(--box-shadow-inset);
+      border: 1px solid var(--border-soft);
     }
 
     .form-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      align-items: center;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly larger minmax */
+      gap: 25px;
+      align-items: end; /* Align to bottom for cleaner look */
+    }
+
+    .form-group {
+      margin-bottom: 0;
     }
 
     .form-group label {
       display: block;
-      margin-bottom: 6px;
-      font-weight: 700;
-      color: var(--dark-color);
+      margin-bottom: 10px;
+      font-weight: 700; /* Bolder labels */
+      color: var(--text-dark);
+      font-size: 0.95em;
+    }
+    .form-group label i {
+        margin-right: 8px;
+        color: var(--primary-lavender);
     }
 
     .form-group input,
     .form-group select {
       width: 100%;
-      padding: 12px 15px;
-      border: 1.5px solid #ced4da;
-      border-radius: var(--border-radius);
+      padding: 14px 18px; /* More padding */
+      border: 1px solid var(--border-soft);
+      border-radius: var(--border-radius-cute);
+      font-family: 'Nunito', sans-serif;
       font-size: 1em;
-      background: #fff;
-      box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      background-color: var(--bg-container);
+    }
+    .form-group input::placeholder {
+        color: var(--text-light);
+        opacity: 0.8;
     }
 
     .form-group input:focus,
     .form-group select:focus {
-      border-color: var(--primary-color);
-      box-shadow: 0 0 5px rgba(255, 107, 107, 0.3);
+      border-color: var(--secondary-peach);
+      box-shadow: 0 0 0 0.25rem rgba(250, 215, 160, 0.35); /* Peach focus */
       outline: none;
     }
 
     .button-container {
-      margin-top: 30px;
+      margin-top: 35px;
       text-align: center;
       display: flex;
       justify-content: center;
@@ -132,109 +158,172 @@
     }
 
     button {
-      padding: 12px 25px;
+      padding: 14px 30px;
+      font-family: 'Nunito', sans-serif;
       font-weight: 700;
-      font-size: 1em;
-      color: var(--white-color);
+      font-size: 1.05em;
+      color: var(--text-dark); /* Dark text on light pastel buttons */
       border: none;
-      border-radius: 30px;
+      border-radius: 30px; /* Pill shape */
       cursor: pointer;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      letter-spacing: 0.5px;
+    }
+    button i {
+        margin-right: 10px;
     }
 
     button:hover {
-      transform: translateY(-3px);
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 5px 12px rgba(0,0,0,0.15);
     }
 
     button.primary-action {
-      background-color: var(--primary-color);
+      background-color: var(--primary-lavender);
     }
     button.primary-action:hover {
-      background-color: #ff4c4c;
+      background-color: #c9a8d0; /* Darker lavender */
     }
 
     button.secondary-action {
-      background-color: var(--secondary-color);
+      background-color: var(--secondary-peach);
     }
     button.secondary-action:hover {
-      background-color: #35bcb2;
+      background-color: #f8cda9; /* Darker peach */
     }
 
     table {
       width: 100%;
-      border-collapse: collapse;
-      margin-top: 30px;
-      border-radius: var(--border-radius);
+      border-collapse: separate;
+      border-spacing: 0;
+      margin-top: 35px;
+      box-shadow: var(--box-shadow-cute);
+      border-radius: var(--border-radius-cute);
       overflow: hidden;
-      background: #fffdfd;
     }
 
     th, td {
-      padding: 14px;
-      border-bottom: 1px solid var(--grey-color);
+      padding: 16px;
+      border-bottom: 1px solid var(--border-soft);
       text-align: left;
       font-size: 0.95em;
     }
+    td:first-child, th:first-child { text-align: center; } /* No */
+    td:nth-child(6), th:nth-child(6) { text-align: center; } /* Koli */
+    td:nth-child(7), th:nth-child(7) { text-align: center; } /* Berat */
+    td:nth-child(8), th:nth-child(8), /* Tariffs */
+    td:nth-child(9), th:nth-child(9),
+    td:nth-child(10), th:nth-child(10) { text-align: right; } /* Total */
+
 
     th {
-      background-color: var(--secondary-color);
-      color: var(--white-color);
+      background: linear-gradient(135deg, var(--primary-lavender), var(--secondary-peach));
+      color: var(--text-dark);
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.8px;
+      font-size: 0.85em;
     }
 
     tbody tr:nth-child(even) {
-      background-color: #fdfafa;
+      background-color: var(--bg-main);
     }
 
     tbody tr:hover {
-      background-color: #fff3f3;
+      background-color: #fdf2e2; /* Very light peach for hover */
+    }
+    tbody td {
+      color: var(--text-dark);
     }
 
-    nav {
+    #emptyTableMessage {
+        text-align: center;
+        padding: 40px 20px;
+        background-color: #fffaf0; /* Light yellow/cream */
+        border-radius: var(--border-radius-cute);
+        margin-top: 20px;
+        border: 2px dashed var(--accent-yellow);
+    }
+    #emptyTableMessage .fa-box-open {
+        font-size: 3em;
+        color: var(--secondary-peach);
+        margin-bottom: 15px;
+    }
+    #emptyTableMessage p {
+        font-size: 1.2em;
+        font-weight: 600;
+        color: var(--text-dark);
+    }
+
+
+    .info-section {
+        background-color: var(--accent-yellow);
+        color: var(--text-dark);
+        padding: 30px;
+        margin-top: 40px;
+        border-radius: var(--border-radius-cute);
+        text-align: center;
+        box-shadow: var(--box-shadow-cute);
+    }
+    .info-section h2 {
+        font-family: 'Pacifico', cursive;
+        font-size: 2em;
+        margin-bottom: 15px;
+        color: #a7727d; /* Muted Rose for info title */
+    }
+    .info-section p {
+        font-size: 1.1em;
+        line-height: 1.8;
+    }
+    .info-section .fa-heart {
+        color: #e57373; /* Soft red for heart */
+    }
+
+    footer {
       text-align: center;
       margin-top: 40px;
-      padding-top: 20px;
-      border-top: 2px dashed var(--grey-color);
+      padding: 25px 0;
+      border-top: 1px solid var(--border-soft);
+      font-size: 0.9em;
+      color: var(--text-light);
+    }
+    footer .fa-truck-moving {
+        color: var(--primary-lavender);
+        margin-right: 5px;
     }
 
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: var(--primary-color);
-      font-weight: 700;
-      font-size: 1.1em;
-      transition: all 0.3s ease;
-    }
-
-    nav a:hover {
-      color: var(--secondary-color);
-      text-decoration: underline;
-    }
-
-    header h1::before {
-      content: "\f4ad";
-      font-family: "Font Awesome 6 Free";
-      font-weight: 900;
-      margin-right: 12px;
-      color: var(--secondary-color);
-    }
-
+    /* Responsive adjustments */
     @media (max-width: 768px) {
+      .container {
+        margin: 15px;
+        padding: 15px;
+      }
       header h1 {
-        font-size: 2.2em;
+        font-size: 2.5em;
+      }
+      header p.subtitle {
+        font-size: 1em;
       }
       .form-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
       }
       th, td {
-        padding: 10px;
-        font-size: 0.9em;
+        padding: 12px;
+        font-size: 0.85em;
       }
       button {
-        padding: 10px 20px;
-        font-size: 0.9em;
+        padding: 12px 20px;
+        font-size: 0.95em;
+        width: 100%;
+      }
+       .button-container {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .info-section {
+        padding: 20px;
       }
     }
   </style>
@@ -242,16 +331,17 @@
 <body>
   <div class="container">
     <header>
-      <img src="1000013343.jpg" alt="SINAR TRANS EXPRESS Logo"> <h1>SINAR TRANS EXPRESS</h1>
-      <p>Jasa Pengiriman Barang Cepat, Aman, dan Terpercaya via Kereta Api & Truck <i class="fas fa-shipping-fast" style="color:var(--primary-color)"></i></p>
+      <img src="1000013343.jpg" alt="SINAR TRANS EXPRESS Logo" class="logo">
+      <h1><i class="fas fa-gift icon"></i>SINAR TRANS EXPRESS</h1>
+      <p class="subtitle">Jasa Pengiriman Barang Manis, Cepat, Aman, dan Terpercaya <i class="fas fa-truck-fast"></i></p>
     </header>
 
     <section class="form-section">
       <div class="form-grid">
         <div class="form-group">
-          <label for="city"><i class="fas fa-city"></i> Pilih Kota Tujuan</label>
+          <label for="city"><i class="fas fa-map-pin"></i> Pilih Kota Tujuan</label>
           <select id="city" onchange="setPrices()">
-            <option value="">--Pilih Kota--</option>
+            <option value="">--Pilih Kota Manismu--</option>
             <option value="Ambarawa">Ambarawa</option>
             <option value="Batang">Batang</option>
             <option value="Banyumas">Banyumas</option>
@@ -281,42 +371,36 @@
         </div>
 
         <div class="form-group">
-          <label for="resi"><i class="fas fa-barcode"></i> Nomor Resi</label>
-          <input type="text" id="resi" placeholder="Contoh: STE12345678">
+          <label for="resi"><i class="fas fa-barcode"></i> Nomor Resi Ajaib</label>
+          <input type="text" id="resi" placeholder="Contoh: STECH12345">
         </div>
 
         <div class="form-group">
-          <label for="pengirim"><i class="fas fa-user-edit"></i> Nama Pengirim</label>
+          <label for="pengirim"><i class="fas fa-user-astronaut"></i> Nama Pengirim Kece</label>
           <input type="text" id="pengirim" placeholder="Nama lengkap pengirim">
         </div>
 
         <div class="form-group">
-          <label for="penerima"><i class="fas fa-user-check"></i> Nama Penerima</label>
+          <label for="penerima"><i class="fas fa-user-friends"></i> Nama Penerima Tersayang</label>
           <input type="text" id="penerima" placeholder="Nama lengkap penerima">
-        </div>
-
-        <div class="form-group">
-          <label for="tujuan"><i class="fas fa-map-marker-alt"></i> Alamat Tujuan Detail</label>
-          <input type="text" id="tujuan" placeholder="Alamat lengkap tujuan">
         </div>
         
         <div class="form-group">
-          <label for="koli"><i class="fas fa-box"></i> Jumlah Koli</label>
-          <input type="text" id="koli" placeholder="Jumlah paket/dus">
+          <label for="koli"><i class="fas fa-boxes-stacked"></i> Jumlah Koli (Paket)</label>
+          <input type="number" id="koli" placeholder="Jumlah paket/dus"> {/* Changed type to number */}
         </div>
 
         <div class="form-group">
-          <label for="berat"><i class="fas fa-weight-hanging"></i> Berat (KG)</label>
-          <input type="number" id="berat" placeholder="Contoh: 35.5">
+          <label for="berat"><i class="fas fa-feather-alt"></i> Berat (KG) - Ringan Kok!</label>
+          <input type="number" id="berat" placeholder="Contoh: 10.5">
         </div>
       </div>
 
       <div class="button-container">
-        <button onclick="addData()" class="primary-action"><i class="fas fa-plus-circle"></i> Tambah Data</button>
-        <button onclick="exportToExcel()" class="secondary-action"><i class="fas fa-file-excel"></i> Export ke Excel</button>
+        <button onclick="addData()" class="primary-action"><i class="fas fa-paper-plane"></i> Kirim Data!</button>
+        <button onclick="exportToExcel()" class="secondary-action"><i class="fas fa-cloud-download-alt"></i> Export ke Excel</button>
       </div>
     </section>
-
 
     <table id="dataTable">
       <thead>
@@ -328,17 +412,155 @@
           <th>Tujuan</th>
           <th>Koli</th>
           <th>Berat (KG)</th>
-          <th>Tarif 30KG Pertama</th>
-          <th>Tarif KG Berikutnya</th>
-          <th>Total Biaya</th>
+          <th>Tarif Awal (s/d 30KG)</th>
+          <th>Tarif Extra /KG</th>
+          <th>Total Biaya Manis</th>
         </tr>
       </thead>
-      <tbody></tbody>
+      <tbody>
+        </tbody>
     </table>
+    <div id="emptyTableMessage" style="display: none;">
+        <i class="fas fa-box-open"></i>
+        <p>Kotak pengiriman masih kosong nih! Yuk, tambahkan data pengiriman pertamamu!</p>
+    </div>
 
-    <nav>
-      <a href="#" onclick="openMegaTransPage()"><i class="fas fa-truck-moving"></i> Ke Halaman MEGATRAN EXPRESS</a>
-    </nav>
+    <section class="info-section">
+        <h2>Kenapa Pilih Sinar Trans Express? <i class="fas fa-heart"></i></h2>
+        <p>Kami mengirimkan paketmu bukan hanya dengan cepat, tapi juga dengan sentuhan kasih sayang! Setiap paket adalah prioritas, sampai ke tujuan dengan senyuman. Cobain deh!</p>
+    </section>
+
+    <footer>
+      <p>&copy; <span id="currentYear"></span> SINAR TRANS EXPRESS - Pengiriman Penuh Cinta. <i class="fas fa-truck-moving"></i></p>
+    </footer>
   </div>
-  </body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script>
+    const cityRates = {
+      Rembang: { base: 65000, extra: 1500 }, Boyolali: { base: 65000, extra: 1500 },
+      Blora: { base: 200000, extra: 1500 }, Kendal: { base: 45000, extra: 1000 },
+      Kudus: { base: 45000, extra: 1000 }, Jepara: { base: 55000, extra: 1500 },
+      Temanggung: { base: 65000, extra: 1500 }, Yogya: { base: 70000, extra: 1500 },
+      Salatiga: { base: 65000, extra: 1500 }, Grobogan: { base: 65000, extra: 1500 },
+      Purwodadi: { base: 65000, extra: 1500 }, Pati: { base: 50000, extra: 1000 },
+      Solo: { base: 70000, extra: 1500 }, Wonosobo: { base: 70000, extra: 1500 },
+      Purwokerto: { base: 70000, extra: 1500 }, Cilacap: { base: 200000, extra: 1500 },
+      Gombong: { base: 70000, extra: 1500 }, Banyumas: { base: 70000, extra: 1500 },
+      Kebumen: { base: 70000, extra: 1500 }, Ambarawa: { base: 65000, extra: 1500 },
+      Surakarta: { base: 70000, extra: 1500 }, Sragen: { base: 70000, extra: 1500 },
+      Klaten: { base: 70000, extra: 1500 }, Batang: { base: 65000, extra: 1500 },
+      Ungaran: { base: 45000, extra: 1000 }
+    };
+
+    let no = 1;
+    const tableBody = document.querySelector('#dataTable tbody');
+    const emptyMessageDiv = document.getElementById('emptyTableMessage');
+
+    function checkTableEmpty() {
+        if (tableBody.rows.length === 0) {
+            emptyMessageDiv.style.display = 'block';
+        } else {
+            emptyMessageDiv.style.display = 'none';
+        }
+    }
+    // Initial check when page loads
+    document.addEventListener('DOMContentLoaded', checkTableEmpty);
+
+
+    function setPrices() {
+      // Future functionality: Display price hints based on selected city
+    }
+
+    function formatCurrency(amount) {
+      return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(amount);
+    }
+
+    function addData() {
+      const city = document.getElementById('city').value;
+      const resi = document.getElementById('resi').value.trim();
+      const pengirim = document.getElementById('pengirim').value.trim();
+      const penerima = document.getElementById('penerima').value.trim();
+      const koliValue = document.getElementById('koli').value.trim(); // Koli is now number
+      const beratInput = document.getElementById('berat').value.trim();
+
+      if (!city) { alert("Pilih kota tujuan manismu dulu ya!"); return; }
+      if (!resi) { alert("Nomor resi ajaibnya jangan lupa diisi!"); return; }
+      if (!pengirim) { alert("Nama pengirim kece siapa nih?"); return; }
+      if (!penerima) { alert("Paketnya buat penerima tersayang siapa?"); return; }
+      
+      const koli = parseInt(koliValue);
+      if (!koliValue || isNaN(koli) || koli <= 0) {
+        alert("Jumlah koli (paket) harus angka positif yaa.");
+        return;
+      }
+      
+      const berat = parseFloat(beratInput);
+      if (!beratInput || isNaN(berat) || berat <= 0) {
+        alert("Berat paketnya berapa KG nih? (angka positif ya)");
+        return;
+      }
+
+      if (!cityRates[city]) {
+        alert("Hmm, tarif untuk kota ini belum ada di daftar manis kami.");
+        return;
+      }
+
+      const rate = cityRates[city];
+      const basePrice = rate.base;
+      const extraKgPrice = rate.extra;
+      
+      let total;
+      if (berat <= 30) {
+        total = basePrice;
+      } else {
+        total = basePrice + (berat - 30) * extraKgPrice;
+      }
+
+      const row = tableBody.insertRow();
+      row.innerHTML = `
+        <td>${no++}</td>
+        <td>${resi}</td>
+        <td>${pengirim}</td>
+        <td>${penerima}</td>
+        <td>${city}</td> {/* Display only the selected city */}
+        <td>${koli}</td>
+        <td>${berat.toLocaleString('id-ID')} KG</td>
+        <td>${formatCurrency(basePrice)}</td>
+        <td>${formatCurrency(extraKgPrice)} / KG</td>
+        <td>${formatCurrency(total)}</td>
+      `;
+      checkTableEmpty(); // Check if table is empty after adding
+      
+      // Optional: Clear form fields after adding, with a cute touch
+      // document.getElementById('city').selectedIndex = 0;
+      // document.getElementById('resi').value = '';
+      // ... and so on for other fields
+      // document.getElementById('city').focus(); // Focus on the first field
+    }
+
+    function exportToExcel() {
+      if (tableBody.rows.length === 0) {
+        alert("Belum ada data manis untuk di-export nih!");
+        return;
+      }
+      const wb = XLSX.utils.book_new();
+      // Clone table to exclude the empty message if it were part of the table
+      const tableToExport = document.getElementById('dataTable').cloneNode(true);
+      // If empty message was a row, remove it before export:
+      // if (tableToExport.querySelector('#emptyRow')) { tableToExport.querySelector('#emptyRow').remove(); }
+      
+      const ws = XLSX.utils.table_to_sheet(tableToExport);
+      XLSX.utils.book_append_sheet(wb, ws, 'SinarTransData');
+      XLSX.writeFile(wb, 'Laporan_Pengiriman_Manis.xlsx');
+    }
+
+    function openMegaTransPage() {
+      window.open('Kerja2.html', '_blank'); // Make sure 'Kerja2.html' is the correct filename
+    }
+
+    // Set current year in footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
