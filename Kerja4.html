@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sarana Kasih Kargo - Komisi Calculator</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -176,9 +176,9 @@
       document.getElementById('penerima').value = '';
       document.getElementById('jumlah').value = '';
 
-      // ✅ Save to Firebase
-      if (window.saveToFirebase) {
-        window.saveToFirebase(dataEntry);
+      // ✅ Save to Google Sheets
+      if (window.saveToGoogleSheets) {
+        window.saveToGoogleSheets(dataEntry);
       }
     }
 
@@ -189,32 +189,22 @@
     }
   </script>
 
-  <!-- ✅ ADDED Firebase & Firestore setup -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-app.js";
-    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-firestore.js";
+  <!-- ✅ Google Sheets Web App Integration -->
+  <script>
+    const webAppUrl = 'https://script.google.com/macros/s/AKfycbwCriZQm5ON754689l21dIG_0vg93Eu3YPWHeUXTliAEb2ux5Qi161HkfN5Zh8vWk7D/exec';
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyAc352N-34_vVmkUonN-TSWP9TOi8ctLyQ",
-      authDomain: "experimental-data-entry-web.firebaseapp.com",
-      projectId: "experimental-data-entry-web",
-      storageBucket: "experimental-data-entry-web.firebasestorage.app",
-      messagingSenderId: "583068563869",
-      appId: "1:583068563869:web:62ac886ef73bf2ef32d774",
-      measurementId: "G-EM0R9P61TX"
+    window.saveToGoogleSheets = function(data) {
+      fetch(webAppUrl, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(res => res.text())
+      .then(msg => console.log("✅ Saved to Google Sheets:", msg))
+      .catch(err => console.error("❌ Error saving to Google Sheets:", err));
     };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    window.saveToFirebase = async function(data) {
-      try {
-        await addDoc(collection(db, "komisiData"), data);
-        console.log("✅ Data saved to Firebase:", data);
-      } catch (e) {
-        console.error("❌ Error saving to Firebase:", e);
-      }
-    }
   </script>
 </body>
 </html>
