@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cute Hub Login</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+
+    :root {
+      --pastel-pink: #f9c6d3;
+      --pastel-blue: #c6e2ff;
+      --pastel-purple: #d8c6f9;
+      --pastel-mint: #c6f9e4;
+      --pastel-yellow: #fff7c6;
+      --text-color: #444;
+      --bg-white: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(135deg, var(--pastel-pink), var(--pastel-mint));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      animation: gradientShift 10s infinite ease alternate;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    .container {
+      background: var(--bg-white);
+      padding: 2rem;
+      border-radius: 25px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 90%;
+      max-width: 420px;
+      position: relative;
+      z-index: 2;
+      border: 4px dashed var(--pastel-blue);
+      animation: popIn 0.6s ease-out;
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      color: var(--text-color);
+      font-weight: 600;
+      background: linear-gradient(90deg, var(--pastel-purple), var(--pastel-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    input[type="password"] {
+      padding: 0.7rem;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      width: 100%;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      transition: box-shadow 0.3s;
+    }
+
+    input[type="password"]:focus {
+      outline: none;
+      box-shadow: 0 0 10px var(--pastel-purple);
+    }
+
+    button {
+      padding: 0.7rem 1.5rem;
+      background-color: var(--pastel-purple);
+      border: none;
+      border-radius: 15px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background-color: var(--pastel-blue);
+      transform: scale(1.05);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .links button {
+      display: block;
+      width: 100%;
+      margin: 0.6rem 0;
+      background-color: var(--pastel-yellow);
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .decor {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      opacity: 0.25;
+      filter: blur(10px);
+      z-index: 0;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .decor.pink { background: var(--pastel-pink); top: 8%; left: 5%; animation-delay: 0s; }
+    .decor.blue { background: var(--pastel-blue); bottom: 12%; right: 10%; animation-delay: 2s; }
+    .decor.purple { background: var(--pastel-purple); top: 18%; right: 25%; animation-delay: 4s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    #error {
+      color: red;
+      margin-top: 1rem;
+      animation: shake 0.3s ease;
+    }
+
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      50% { transform: translateX(5px); }
+      75% { transform: translateX(-5px); }
+      100% { transform: translateX(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="decor pink"></div>
+  <div class="decor blue"></div>
+  <div class="decor purple"></div>
+
+  <div class="container" id="login-box">
+    <h2>Welcome to the Portal</h2>
+    <p style="color:#666; font-size:0.9rem; margin-bottom:1.5rem;">Authorized access only. Please enter the password.</p>
+    <input type="password" id="password" placeholder="Enter password here" />
+    <button onclick="checkPassword()">Login</button>
+    <p id="error" style="display:none;">Wrong password!</p>
+  </div>
+
+  <div class="container hidden" id="link-box">
+    <h2>Select a Destination</h2>
+    <div class="links">
+      <button onclick="location.href='https://ak1rin.github.io/main/Kerja4.html'">Sarana Kasih Kargo</button>
+      <button onclick="location.href='https://ak1rin.github.io/main/Kerja3.html'">Sinar Trans Express</button>
+      <button onclick="location.href='https://ak1rin.github.io/main/Kerja2.html'">Megatransportasi Express</button>
+      <button onclick="location.href='https://ak1rin.github.io/main/Kerja5.html'">Vaksin MJP</button>
+    </div>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const input = document.getElementById('password').value;
+      const error = document.getElementById('error');
+      if (input === 'Kentir123') {
+        document.getElementById('login-box').classList.add('hidden');
+        document.getElementById('link-box').classList.remove('hidden');
+      } else {
+        error.style.display = 'block';
+        error.style.animation = 'shake 0.3s ease';
+        setTimeout(() => error.style.animation = '', 300);
+      }
+    }
+  </script>
+</body>
+</html>
