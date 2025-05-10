@@ -382,5 +382,28 @@
       a.click();
     }
   </script>
+  <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyAc352N-34_vVmkUonN-TSWP9TOi8ctLyQ",
+    authDomain: "experimental-data-entry-web.firebaseapp.com",
+    projectId: "experimental-data-entry-web",
+    storageBucket: "experimental-data-entry-web.firebasestorage.app",
+    messagingSenderId: "583068563869",
+    appId: "1:583068563869:web:62ac886ef73bf2ef32d774",
+    measurementId: "G-EM0R9P61TX"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 </body>
 </html>
