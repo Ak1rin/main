@@ -5,27 +5,376 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ak1rin's Cute Corner 💖✨</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍥</text></svg>">
-  <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --peach: #ffe5b4;
+      --baby-blue: #d0f0fd;
+      --lavender: #e6e6fa;
+      --bubblegum-pink: #ffb6c1;
+      --cotton-candy: #ffcce7;
+      --mint: #cafff5;
+      --soft-white: #fffafa;
+      --white: #ffffff;
+      --dark-lavender: #6b4e71;
+      --pastel-yellow: #fff9c4;
+      --pastel-green: #d4fcda;
+      --pastel-purple: #f3e6ff;
+      --shadow: 0 4px 24px 0 rgba(255, 182, 193, 0.25);
+    }
+    html {
+      scroll-behavior: smooth;
+      background: linear-gradient(120deg, var(--peach), var(--baby-blue), var(--lavender), var(--mint));
+      min-height: 100%;
+    }
+    body {
+      font-family: 'Nunito', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      color: var(--dark-lavender);
+      position: relative;
+      overflow-x: hidden;
+    }
+    /* Floating pastel shapes */
+    .floating-shape {
+      position: fixed;
+      z-index: 0;
+      opacity: 0.25;
+      pointer-events: none;
+      animation: float 8s ease-in-out infinite;
+    }
+    .floating-shape.star { color: var(--bubblegum-pink); font-size: 2.5em; left: 10vw; top: 10vh; animation-delay: 0s; }
+    .floating-shape.heart { color: var(--mint); font-size: 2em; left: 80vw; top: 20vh; animation-delay: 2s; }
+    .floating-shape.sparkle { color: var(--pastel-yellow); font-size: 2.2em; left: 50vw; top: 80vh; animation-delay: 4s; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-30px) scale(1.1); }
+    }
+    /* Sticky animated nav */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: linear-gradient(90deg, var(--cotton-candy), var(--baby-blue), var(--lavender));
+      box-shadow: var(--shadow);
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      transition: background 0.5s;
+    }
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7em 2em;
+    }
+    .profile-icon {
+      font-size: 2.2em;
+      background: var(--bubblegum-pink);
+      border-radius: 50%;
+      padding: 0.2em 0.5em;
+      box-shadow: 0 2px 8px var(--bubblegum-pink);
+      border: 2px solid var(--white);
+      margin-right: 1em;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5em;
+      margin: 0;
+      padding: 0;
+    }
+    nav a {
+      font-family: 'Pacifico', cursive;
+      color: var(--dark-lavender);
+      text-decoration: none;
+      font-size: 1.2em;
+      padding: 0.3em 1em;
+      border-radius: 20px;
+      transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    }
+    nav a:hover, nav a:focus {
+      background: var(--bubblegum-pink);
+      color: var(--white);
+      box-shadow: 0 2px 12px var(--bubblegum-pink);
+    }
+    /* Hamburger for mobile */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+    .hamburger span {
+      width: 28px;
+      height: 4px;
+      background: var(--dark-lavender);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    @media (max-width: 700px) {
+      .header-content { flex-direction: row; padding: 0.7em 1em; }
+      nav ul { display: none; flex-direction: column; background: var(--cotton-candy); position: absolute; top: 60px; right: 10px; border-radius: 18px; box-shadow: var(--shadow); padding: 1em 2em; }
+      nav ul.active { display: flex; }
+      .hamburger { display: flex; }
+    }
+    /* Cute section styling */
+    .cute-section {
+      background: linear-gradient(120deg, var(--white), var(--pastel-purple), var(--mint));
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      margin: 2.5em auto;
+      padding: 2.5em 1.5em;
+      max-width: 800px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      animation: fadeInUp 1.2s cubic-bezier(.23,1.01,.32,1) both;
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .main-title span {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.7em;
+      color: var(--bubblegum-pink);
+      text-shadow: 2px 2px var(--soft-white), 0 0 12px var(--bubblegum-pink);
+    }
+    .motivation-text {
+      font-size: 1.2em;
+      color: var(--pastel-green);
+      font-weight: bold;
+      margin-top: 1em;
+      text-shadow: 0 1px 8px var(--mint);
+    }
+    /* Social section */
+    .special-social-section {
+      background: linear-gradient(135deg, var(--peach), var(--lavender), var(--baby-blue));
+      color: var(--dark-lavender);
+      padding: 35px 25px;
+      margin: 40px auto;
+      border-radius: 22px;
+      border: 3px solid var(--cotton-candy);
+      box-shadow: var(--shadow);
+      text-align: center;
+      overflow: hidden;
+      max-width: 800px;
+      animation: fadeInUp 1.5s 0.2s both;
+    }
+    .special-social-section h2 {
+      font-family: 'Pacifico', cursive;
+      color: var(--bubblegum-pink);
+      font-size: 2.2em;
+      margin: 0 0 15px;
+      text-shadow: 2px 2px var(--soft-white), 0 0 12px var(--bubblegum-pink);
+    }
+    .social-links-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--white);
+      color: var(--dark-lavender);
+      padding: 12px 25px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1em;
+      border: 2px solid var(--cotton-candy);
+      box-shadow: 0 4px 10px rgba(255, 204, 231, 0.4);
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .social-link .social-icon-placeholder {
+      margin-right: 10px;
+      font-weight: bold;
+      color: var(--bubblegum-pink);
+    }
+    .social-link:hover, .social-link:focus {
+      background: var(--bubblegum-pink);
+      color: var(--white);
+      border-color: var(--white);
+      transform: translateY(-5px) scale(1.07) rotate(-2deg);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+    /* Gallery */
+    .gallery-placeholder {
+      display: flex;
+      gap: 1.5em;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2em;
+    }
+    .gallery-item-placeholder {
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(135deg, var(--bubblegum-pink), var(--mint), var(--baby-blue));
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      opacity: 0.7;
+      margin-bottom: 1em;
+      animation: float 5s infinite alternate;
+    }
+    /* Music Player */
+    #player-container {
+      display: flex;
+      justify-content: center;
+      margin: 2em 0 1em 0;
+      z-index: 2;
+      position: relative;
+    }
+    #player {
+      background: linear-gradient(120deg, var(--pastel-purple), var(--mint), var(--bubblegum-pink));
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      padding: 2em 2em 1.5em 2em;
+      text-align: center;
+      min-width: 320px;
+      max-width: 400px;
+      animation: fadeInUp 1.5s 0.3s both;
+    }
+    #song-title {
+      font-family: 'Pacifico', cursive;
+      color: var(--bubblegum-pink);
+      font-size: 1.3em;
+      margin-bottom: 0.7em;
+      text-shadow: 1px 1px var(--soft-white);
+    }
+    #audio {
+      width: 90%;
+      border-radius: 18px;
+      background: var(--white);
+      margin-bottom: 1em;
+      box-shadow: 0 2px 8px var(--mint);
+    }
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 1.5em;
+      margin-top: 0.5em;
+    }
+    .controls button {
+      background: linear-gradient(90deg, var(--bubblegum-pink), var(--mint));
+      color: var(--dark-lavender);
+      border: none;
+      border-radius: 20px;
+      padding: 0.7em 1.5em;
+      font-family: 'Pacifico', cursive;
+      font-size: 1.1em;
+      cursor: pointer;
+      box-shadow: 0 2px 8px var(--bubblegum-pink);
+      transition: background 0.3s, transform 0.2s;
+    }
+    .controls button:hover {
+      background: var(--mint);
+      color: var(--bubblegum-pink);
+      transform: scale(1.08) rotate(-2deg);
+    }
+    /* Cute button */
+    .cute-button {
+      background: linear-gradient(90deg, var(--bubblegum-pink), var(--mint));
+      color: var(--dark-lavender);
+      border: none;
+      border-radius: 20px;
+      padding: 0.7em 1.5em;
+      font-family: 'Pacifico', cursive;
+      font-size: 1.1em;
+      cursor: pointer;
+      box-shadow: 0 2px 8px var(--bubblegum-pink);
+      transition: background 0.3s, transform 0.2s;
+      margin: 2em auto 0 auto;
+      display: block;
+    }
+    .cute-button:hover {
+      background: var(--mint);
+      color: var(--bubblegum-pink);
+      transform: scale(1.08) rotate(-2deg);
+    }
+    /* Sparkle cursor */
+    .sparkle-cursor {
+      position: fixed;
+      width: 32px;
+      height: 32px;
+      pointer-events: none;
+      z-index: 9999;
+      background: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/2728.png') no-repeat center/contain;
+      opacity: 0.8;
+      transition: transform 0.1s;
+      will-change: transform;
+    }
+    /* Back to top */
+    #back-to-top {
+      position: fixed;
+      right: 2vw;
+      bottom: 2vh;
+      background: linear-gradient(90deg, var(--bubblegum-pink), var(--mint));
+      color: var(--dark-lavender);
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 2em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px var(--bubblegum-pink);
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.3s, transform 0.2s;
+      z-index: 100;
+      display: none;
+    }
+    #back-to-top.show { display: flex; }
+    #back-to-top:hover { opacity: 1; transform: scale(1.1) rotate(-10deg); }
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2em 0 1em 0;
+      color: var(--dark-lavender);
+      font-size: 1.1em;
+      background: transparent;
+      margin-top: 2em;
+    }
+    /* Responsive */
+    @media (max-width: 480px) {
+      .main-title span { font-size: 1.5em; }
+      .special-social-section h2 { font-size: 1.3em; }
+      .cute-section { padding: 1.2em 0.5em; }
+      #player { min-width: 90vw; padding: 1em 0.5em; }
+      .gallery-item-placeholder { width: 80px; height: 80px; }
+    }
+  </style>
 </head>
 <body>
+  <!-- Floating pastel shapes -->
+  <span class="floating-shape star">★</span>
+  <span class="floating-shape heart">❤</span>
+  <span class="floating-shape sparkle">✨</span>
   <div class="sparkle-cursor"></div>
-
   <header>
     <div class="header-content">
       <div class="profile-icon">🍥</div>
       <nav>
-        <ul>
-          <li><a href="#about">🌸 About Me 🌸</a></li>
-          <li><a href="#projects">✨ My Projects ✨</a></li>
-          <li><a href="#gallery">🖼️ Gallery 🖼️</a></li> 
-          <li><a href="#blog">✏️ Blog/Thoughts ✏️</a></li> 
-          <li><a href="#contact">💌 Links & Contact 💌</a></li>
+        <div class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </div>
+        <ul id="nav-list">
+          <li><a href="#about">🌸 About Me</a></li>
+          <li><a href="#projects">✨ Projects</a></li>
+          <li><a href="#gallery">🖼️ Gallery</a></li>
+          <li><a href="#blog">✏️ Blog</a></li>
+          <li><a href="#contact">💌 Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
-
   <main>
     <section id="about" class="cute-section">
       <h1 class="main-title"><span>Welcome to Ak1rin's Page!</span></h1>
@@ -33,196 +382,50 @@
       <p>Susah bener njir ngoding, gayakin bisa sih, udah seminggu stuck di html kocak geming.</p>
       <p class="motivation-text">But I'm trying my best and learning new things every day! ✨頑張って！✨</p>
     </section>
-    
- <section id="social-connect" class="special-social-section">
-  <h2>Let's Be Friends! <span class="wave-emoji">👋</span>💖</h2>
-  <p>You can find me fluttering around on these platforms:</p>
-  <div class="social-links-container">
-    <a href="YOUR_FACEBOOK_LINK_HERE" class="social-link facebook" target="_blank" rel="noopener noreferrer">
-      <span class="social-icon-placeholder">FB</span> Facebook
-    </a>
-    <a href="YOUR_DISCORD_INVITE_LINK_HERE" class="social-link discord" target="_blank" rel="noopener noreferrer">
-      <span class="social-icon-placeholder">DC</span> Discord
-    </a>
-    <a href="YOUR_TWITTER_PROFILE_LINK_HERE" class="social-link twitter" target="_blank" rel="noopener noreferrer">
-      <span class="social-icon-placeholder">TW</span> Twitter
-    </a>
-    <a href="YOUR_GITHUB_PROFILE_LINK_HERE" class="social-link github" target="_blank" rel="noopener noreferrer">
-      <span class="social-icon-placeholder">GH</span> GitHub
-    </a>
-  </div>
-</section>
-
-<style>
-:root {
-  --peach: #ffe5b4;
-  --baby-blue: #d0f0fd;
-  --lavender: #e6e6fa;
-  --bubblegum-pink: #ffb6c1;
-  --cotton-candy: #ffcce7;
-  --dark-lavender: #6b4e71;
-  --soft-white: #fffafa;
-  --white: #ffffff;
-}
-
-/* Pretty pastel gradient background */
-.special-social-section {
-  background: linear-gradient(135deg, var(--peach), var(--lavender), var(--baby-blue));
-  color: var(--dark-lavender);
-  padding: 35px 25px;
-  margin: 40px auto;
-  border-radius: 22px;
-  border: 3px solid var(--cotton-candy);
-  box-shadow: 0 0 20px rgba(255, 182, 193, 0.5), 0 8px 16px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  overflow: hidden;
-  max-width: 800px;
-}
-
-/* Fancy pastel header */
-.special-social-section h2 {
-  font-family: 'Pacifico', cursive;
-  color: var(--bubblegum-pink);
-  font-size: 2.8em;
-  margin: 0 0 15px;
-  text-shadow: 2px 2px var(--soft-white), 0 0 12px var(--bubblegum-pink);
-}
-
-.special-social-section p {
-  color: var(--dark-lavender);
-  font-size: 1.2em;
-  margin-bottom: 30px;
-}
-
-.wave-emoji {
-  display: inline-block;
-  animation: waveAnimation 2.5s infinite;
-  transform-origin: 70% 70%;
-}
-
-@keyframes waveAnimation {
-  0%, 100% { transform: rotate(0deg); }
-  10% { transform: rotate(14deg); }
-  20% { transform: rotate(-8deg); }
-  30% { transform: rotate(14deg); }
-  40% { transform: rotate(-4deg); }
-  50% { transform: rotate(10deg); }
-  60% { transform: rotate(0deg); }
-}
-
-.social-links-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-/* Cute button style */
-.social-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--white);
-  color: var(--dark-lavender);
-  padding: 12px 25px;
-  border-radius: 40px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 1.1em;
-  border: 2px solid var(--cotton-candy);
-  box-shadow: 0 4px 10px rgba(255, 204, 231, 0.4);
-  transition: all 0.3s ease-in-out;
-}
-
-.social-link .social-icon-placeholder {
-  margin-right: 10px;
-  font-weight: bold;
-  color: var(--bubblegum-pink);
-}
-
-/* Hover effect */
-.social-link:hover,
-.social-link:focus {
-  background-color: var(--bubblegum-pink);
-  color: var(--white);
-  border-color: var(--white);
-  transform: translateY(-5px) scale(1.07);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-}
-
-@media (max-width: 480px) {
-  .special-social-section h2 {
-    font-size: 2.1em;
-  }
-
-  .special-social-section p {
-    font-size: 1em;
-  }
-
-  .social-link {
-    font-size: 1em;
-    padding: 10px 20px;
-    width: calc(85% - 20px);
-    justify-content: center;
-  }
-
-  .social-links-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
-}
-</style>
-
-
-    <div class="gradient-hr"></div>
-
-    <section id="gallery" class="cute-section"> {/* Update 1.1 New Section */}
+    <section id="social-connect" class="special-social-section">
+      <h2>Let's Be Friends! <span class="wave-emoji">👋</span>💖</h2>
+      <p>You can find me fluttering around on these platforms:</p>
+      <div class="social-links-container">
+        <a href="#" class="social-link facebook" target="_blank"><span class="social-icon-placeholder">FB</span> Facebook</a>
+        <a href="#" class="social-link discord" target="_blank"><span class="social-icon-placeholder">DC</span> Discord</a>
+        <a href="#" class="social-link twitter" target="_blank"><span class="social-icon-placeholder">TW</span> Twitter</a>
+        <a href="#" class="social-link github" target="_blank"><span class="social-icon-placeholder">GH</span> GitHub</a>
+      </div>
+    </section>
+    <section id="gallery" class="cute-section">
       <h2>🖼️ My Gallery 🖼️</h2>
       <p>A place for my art, photos, or other visual things! Coming soon... 🎨</p>
       <div class="gallery-placeholder">
         <div class="gallery-item-placeholder"></div>
         <div class="gallery-item-placeholder"></div>
         <div class="gallery-item-placeholder"></div>
-        <div class="gallery-item-placeholder"></div> {/* Added one more for better wrapping demo */}
+        <div class="gallery-item-placeholder"></div>
       </div>
     </section>
-
-    <div class="gradient-hr"></div>
-
     <section id="blog" class="cute-section">
       <h2>✏️ Blog & Thoughts ✏️</h2>
       <p>My little space for ramblings, updates, and stories. Stay tuned! 📝</p>
       <article class="blog-post-placeholder">
         <h3>My First "Post"! Who?</h3>
-        <p>
-Welcome to my little corner of the internet. I’m just a quiet person trying to figure things out — someone who thinks too much, feels too deeply, and probably plays too much Counter-Strike 2 when stressed. I grew up keeping a lot to myself, but lately I’ve been trying to express who I really am — even if it’s just through texting. Sometimes I dream of working in a cozy cubicle with a city view, decorating my desk with little figures and maybe a Blahaj, alot of blahaj. I love games, music, and soft little things that make the world feel kinder. Life’s been kinda messy — weird jobs, unfair pay, health stuff, and a lot of late-night thinking. But I’m still here. And maybe this site is my way of saying: “Hey, I exist. I’m trying. And I want to make something beautiful, even if it’s small.”Thanks for stopping by. Hope you’re doing okay too.
-
-</p>
+        <p>Welcome to my little corner of the internet. I’m just a quiet person trying to figure things out — someone who thinks too much, feels too deeply, and probably plays too much Counter-Strike 2 when stressed. I grew up keeping a lot to myself, but lately I’ve been trying to express who I really am — even if it’s just through texting. Sometimes I dream of working in a cozy cubicle with a city view, decorating my desk with little figures and maybe a Blahaj, alot of blahaj. I love games, music, and soft little things that make the world feel kinder. Life’s been kinda messy — weird jobs, unfair pay, health stuff, and a lot of late-night thinking. But I’m still here. And maybe this site is my way of saying: “Hey, I exist. I’m trying. And I want to make something beautiful, even if it’s small.”Thanks for stopping by. Hope you’re doing okay too.</p>
         <span id="post-date">Posted on: May 9, 2025</span>
       </article>
-    
       <article class="blog-post-placeholder">
         <h3>Another Day, Another Thought!</h3>
         <p>Something new I learned today, or just a random cute thought! 💭</p>
         <span>Posted on: May 10, 2025</span>
       </article>
-      */}
     </section>
-
-    <div class="gradient-hr"></div>
-
     <section id="contact" class="cute-section">
       <h2>💖 Connect & Links 💖</h2>
       <p>Gatau link apaan ntar ah - I'll figure out more cute links soon! 🌟</p>
       <ul>
-        <li><a href="https://keep.google.com/" target="_blank" rel="noopener noreferrer">📝 Google Keep</a></li>
-        <li><a href="https://www.seadc.ccms.teleperformance.com/ccms-bin/home.pl" target="_blank" rel="noopener noreferrer">🔗 CCMS</a></li>
-        <li><a href="https://x.com/login" target="_blank" rel="noopener noreferrer">🐦 Twitter / X</a></li>
+        <li><a href="https://keep.google.com/" target="_blank">📝 Google Keep</a></li>
+        <li><a href="https://www.seadc.ccms.teleperformance.com/ccms-bin/home.pl" target="_blank">🔗 CCMS</a></li>
+        <li><a href="https://x.com/login" target="_blank">🐦 Twitter / X</a></li>
       </ul>
     </section>
   </main>
-
   <div id="player-container">
     <div id="player">
       <h2 id="song-title"></h2>
@@ -233,89 +436,115 @@ Welcome to my little corner of the internet. I’m just a quiet person trying to
       </div>
     </div>
   </div>
-
   <div class="page-navigation">
     <a href="hubkerjaan.html"><button class="cute-button">Go to Page Lain 🚀</button></a>
   </div>
-
+  <button id="back-to-top" title="Back to top">↑</button>
   <footer>
     <p>&copy; <span id="current-year">2024</span> Ak1rin 🌸 Made with love & a sprinkle of magic ✨</p>
   </footer>
-
-<script>
-  // Set current year in footer
-  document.getElementById('current-year').textContent = new Date().getFullYear();
-
-  // Set blog post date dynamically (example for one post)
-  // For multiple posts, you'd iterate or select them more specifically
-  // const postDateElement = document.getElementById('post-date');
-  // if (postDateElement) {
-  //   const today = new Date();
-  //   const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  //   postDateElement.textContent = `Posted on: ${today.toLocaleDateString('en-US', options)}`;
-  // }
-  // Current date is May 9, 2025, so hardcoding for this example. For dynamic use, uncomment above.
-
-
-  // Define the playlist
-  const playlist = [
-    { title: "Sumeru Theme 🍃", src: "music/1-01. Sumeru.mp3" },
-    { title: "Coruscating Street ✨", src: "music/Genshin Impact_ Coruscating Street BGM OST [Extended].mp3" },
-    { title: "Dragonspine Peaks 🏔️", src: "music/Genshin Impact OST Album - Vortex of Legends.mp3" }
-  ];
-
-  // Get the audio element and controls
-  const audio = document.getElementById('audio');
-  const songTitle = document.getElementById('song-title');
-  const prevButton = document.getElementById('prev-button');
-  const nextButton = document.getElementById('next-button');
-
-  // Initialize the current song index
-  let currentSongIndex = 0;
-
-  // Function to play the current song
-  function playCurrentSong() {
-    if (playlist.length === 0) {
-      songTitle.textContent = "No songs in playlist! Add some 🎵";
-      return;
-    }
-    audio.src = playlist[currentSongIndex].src;
-    songTitle.textContent = playlist[currentSongIndex].title;
-    audio.play().catch(error => {
-      console.error("Error playing audio:", error);
-      songTitle.textContent = `Error playing: ${playlist[currentSongIndex].title}`;
-      // Offer a manual play button perhaps, or just log error for autoplay issues
+  <script>
+    // Set current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navList = document.getElementById('nav-list');
+    hamburger.addEventListener('click', () => {
+      navList.classList.toggle('active');
     });
-  }
-
-  // Play the first song
-  if (playlist.length > 0) {
-    playCurrentSong();
-  } else {
-    songTitle.textContent = "Playlist is empty 🎶";
-  }
-
-  // Add event listeners to the controls
-  prevButton.addEventListener('click', function() {
-    if (playlist.length === 0) return;
-    currentSongIndex = (currentSongIndex - 1 + playlist.length) % playlist.length;
-    playCurrentSong();
-  });
-
-  nextButton.addEventListener('click', function() {
-    if (playlist.length === 0) return;
-    currentSongIndex = (currentSongIndex + 1) % playlist.length;
-    playCurrentSong();
-  });
-
-  // Optional: Cute sparkle cursor effect
-  const cursor = document.querySelector('.sparkle-cursor');
-  if (cursor) { // Check if cursor element exists
+    // Smooth scroll for nav links
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href.startsWith('#')) {
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+          navList.classList.remove('active');
+        }
+      });
+    });
+    // Back to top button
+    const backToTop = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) backToTop.classList.add('show');
+      else backToTop.classList.remove('show');
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    // Music player logic
+    const playlist = [
+      { title: "Sumeru Theme 🍃", src: "music/1-01. Sumeru.mp3" },
+      { title: "Coruscating Street ✨", src: "music/Genshin Impact_ Coruscating Street BGM OST [Extended].mp3" },
+      { title: "Dragonspine Peaks 🏔️", src: "music/Genshin Impact OST Album - Vortex of Legends.mp3" }
+    ];
+    const audio = document.getElementById('audio');
+    const songTitle = document.getElementById('song-title');
+    const prevButton = document.getElementById('prev-button');
+    const nextButton = document.getElementById('next-button');
+    let currentSongIndex = 0;
+    function playCurrentSong() {
+      if (playlist.length === 0) {
+        songTitle.textContent = "No songs in playlist! Add some 🎵";
+        return;
+      }
+      audio.src = playlist[currentSongIndex].src;
+      songTitle.textContent = playlist[currentSongIndex].title;
+      audio.play().catch(error => {
+        songTitle.textContent = `Error playing: ${playlist[currentSongIndex].title}`;
+      });
+    }
+    if (playlist.length > 0) playCurrentSong();
+    prevButton.addEventListener('click', function() {
+      if (playlist.length === 0) return;
+      currentSongIndex = (currentSongIndex - 1 + playlist.length) % playlist.length;
+      playCurrentSong();
+    });
+    nextButton.addEventListener('click', function() {
+      if (playlist.length === 0) return;
+      currentSongIndex = (currentSongIndex + 1) % playlist.length;
+      playCurrentSong();
+    });
+    // Sparkle cursor trail
+    const cursor = document.querySelector('.sparkle-cursor');
+    let sparkleTrail = [];
     document.addEventListener('mousemove', (e) => {
       cursor.style.left = e.pageX + 'px';
       cursor.style.top = e.pageY + 'px';
+      // Sparkle trail
+      const trail = document.createElement('span');
+      trail.className = 'sparkle-cursor';
+      trail.style.left = e.pageX + 'px';
+      trail.style.top = e.pageY + 'px';
+      trail.style.opacity = '0.5';
+      trail.style.pointerEvents = 'none';
+      trail.style.position = 'fixed';
+      trail.style.width = '18px';
+      trail.style.height = '18px';
+      trail.style.background = "url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/2728.png') no-repeat center/contain";
+      document.body.appendChild(trail);
+      sparkleTrail.push(trail);
+      setTimeout(() => {
+        trail.remove();
+        sparkleTrail.shift();
+      }, 400);
     });
-  }
-</script>
+    // Animate wave emoji
+    document.querySelectorAll('.wave-emoji').forEach(el => {
+      el.style.display = 'inline-block';
+      el.animate([
+        { transform: 'rotate(0deg)' },
+        { transform: 'rotate(14deg)' },
+        { transform: 'rotate(-8deg)' },
+        { transform: 'rotate(14deg)' },
+        { transform: 'rotate(-4deg)' },
+        { transform: 'rotate(10deg)' },
+        { transform: 'rotate(0deg)' }
+      ], {
+        duration: 2500,
+        iterations: Infinity
+      });
+    });
+  </script>
 </body>
 </html>
